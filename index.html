@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Максим + Полина | Свадебное приглашение</title>
+    <meta
+      name="description"
+      content="Именное свадебное приглашение Максима и Полины на 8 августа 2026 года."
+    >
+    <meta name="theme-color" content="#d8177f">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@400;500;600;700&family=Marck+Script&display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#invite">Перейти к приглашению</a>
+
+    <audio id="weddingMusic" src="assets/basta-chistyi-kaif.mp3" loop preload="metadata"></audio>
+    <button class="music-toggle" id="musicToggle" type="button" aria-pressed="false">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M9 18V5l11-2v13"></path>
+        <circle cx="6" cy="18" r="3"></circle>
+        <circle cx="17" cy="16" r="3"></circle>
+      </svg>
+      <span>Музыка</span>
+    </button>
+
+    <main>
+      <section class="hero section" id="top" aria-labelledby="hero-title">
+        <div class="flower-corner flower-corner--top" aria-hidden="true"></div>
+        <div class="section-inner hero-inner">
+          <p class="eyebrow">8 августа 2026</p>
+          <h1 id="hero-title">Максим + Полина</h1>
+          <p class="hero-lead">
+            Эти ангелочки и не догадывались, что однажды обменяются кольцами
+          </p>
+
+          <div class="childhood-grid" aria-label="Детские фотографии Максима и Полины">
+            <figure class="photo-card">
+              <img
+                src="assets/maksim-child.png"
+                alt="Детская фотография Максима"
+                width="570"
+                height="1410"
+              >
+              <figcaption>Максим</figcaption>
+            </figure>
+            <figure class="photo-card">
+              <img
+                src="assets/polina-child.png"
+                alt="Детская фотография Полины"
+                width="600"
+                height="1340"
+              >
+              <figcaption>Полина</figcaption>
+            </figure>
+          </div>
+
+          <p class="hero-signature">Максим + Полина</p>
+        </div>
+      </section>
+
+      <section class="section invite-section" id="invite" aria-labelledby="invite-title">
+        <div class="section-inner narrow">
+          <p class="eyebrow">Приглашение</p>
+          <h2 id="invite-title">Дорогие гости!</h2>
+          <p class="large-text">
+            Вы очень важные для нас люди! Поэтому приглашаем Вас разделить этот
+            день вместе с нами.
+          </p>
+
+          <details class="link-maker">
+            <summary>Создать именную ссылку</summary>
+            <form id="linkForm" class="link-form">
+              <label for="guestLinkName">Имена гостей</label>
+              <div class="link-form-row">
+                <input
+                  id="guestLinkName"
+                  name="guestLinkName"
+                  type="text"
+                  placeholder="Например: Иван и Софья"
+                  autocomplete="name"
+                >
+                <button class="button button--secondary" type="submit">Сделать ссылку</button>
+              </div>
+              <label class="visually-hidden" for="generatedLink">Готовая ссылка</label>
+              <div class="link-form-row">
+                <input id="generatedLink" type="url" readonly placeholder="Ссылка появится здесь">
+                <button class="icon-button" id="copyLink" type="button" title="Скопировать ссылку" aria-label="Скопировать ссылку">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                </button>
+              </div>
+            </form>
+          </details>
+        </div>
+      </section>
+
+      <section class="section calendar-section" aria-labelledby="calendar-title">
+        <div class="section-inner split">
+          <div>
+            <p class="eyebrow">Дата</p>
+            <h2 id="calendar-title">Август 2026</h2>
+            <p>
+              Восьмой день восьмого месяца станет нашим семейным праздником.
+            </p>
+          </div>
+
+          <div class="calendar" aria-label="Календарь на август 2026 года">
+            <div class="calendar-header">
+              <span>Пн</span>
+              <span>Вт</span>
+              <span>Ср</span>
+              <span>Чт</span>
+              <span>Пт</span>
+              <span>Сб</span>
+              <span>Вс</span>
+            </div>
+            <div class="calendar-grid">
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span>1</span>
+              <span>2</span>
+              <span>3</span>
+              <span>4</span>
+              <span>5</span>
+              <span>6</span>
+              <span>7</span>
+              <span class="wedding-day" aria-label="8 августа 2026, день свадьбы">8</span>
+              <span>9</span>
+              <span>10</span>
+              <span>11</span>
+              <span>12</span>
+              <span>13</span>
+              <span>14</span>
+              <span>15</span>
+              <span>16</span>
+              <span>17</span>
+              <span>18</span>
+              <span>19</span>
+              <span>20</span>
+              <span>21</span>
+              <span>22</span>
+              <span>23</span>
+              <span>24</span>
+              <span>25</span>
+              <span>26</span>
+              <span>27</span>
+              <span>28</span>
+              <span>29</span>
+              <span>30</span>
+              <span>31</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section place-section" aria-labelledby="place-title">
+        <div class="flower-corner flower-corner--middle" aria-hidden="true"></div>
+        <div class="section-inner narrow">
+          <p class="eyebrow">Место проведения</p>
+          <h2 id="place-title">«Рояль у дома»</h2>
+          <p class="large-text">д. Сизево, ул. Дивная горка, 14</p>
+          <a class="button" href="https://yandex.ru/maps/-/CPckrUN-" target="_blank" rel="noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11z"></path>
+              <circle cx="12" cy="10" r="2.5"></circle>
+            </svg>
+            Открыть в Яндекс Картах
+          </a>
+        </div>
+      </section>
+
+      <section class="section program-section" aria-labelledby="program-title">
+        <div class="section-inner">
+          <p class="eyebrow">Программа</p>
+          <h2 id="program-title">Как пройдет день</h2>
+          <div class="timeline">
+            <article class="timeline-item">
+              <time datetime="2026-08-08T15:00">15:00</time>
+              <p>Сбор гостей + фуршет</p>
+            </article>
+            <article class="timeline-item">
+              <time datetime="2026-08-08T16:00">16:00</time>
+              <p>Выездная регистрация</p>
+            </article>
+            <article class="timeline-item">
+              <time datetime="2026-08-08T17:00">17:00</time>
+              <p>Праздничный банкет</p>
+            </article>
+            <article class="timeline-item">
+              <time datetime="2026-08-08T23:00">23:00</time>
+              <p>Завершение банкета, к сожалению, даже самый прекрасный вечер может закончиться</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section details-section" aria-labelledby="details-title">
+        <div class="section-inner details-grid">
+          <div>
+            <p class="eyebrow">Дресс-код</p>
+            <h2 id="details-title">Ваша красота, Ваш выбор</h2>
+            <p>
+              Мы даем волю вашей фантазии: выбирайте любой наряд, который
+              подчеркнет вашу красоту. Просим только воздержаться от белого.
+            </p>
+          </div>
+          <div class="details-list" aria-label="Важные детали">
+            <article>
+              <h3>Без цветов</h3>
+              <p>
+                Очень просим не дарить нам цветы, так как из-за свадебного
+                путешествия мы не успеем насладиться их красотой.
+              </p>
+            </article>
+            <article>
+              <h3>Подарок</h3>
+              <p>
+                Мы ценим Вашу заботу и внимание к нашей семье. Если Вы
+                задумываетесь о подарке, будем рады вкладу в наш семейный
+                бюджет. Это поможет нам осуществить мечты.
+              </p>
+            </article>
+            <article>
+              <h3>Традиции</h3>
+              <p>Будем благодарны, если Вы воздержитесь от криков «Горько!» на празднике.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section form-section" aria-labelledby="form-title">
+        <div class="section-inner form-layout">
+          <div>
+            <p class="eyebrow">Анкета гостя</p>
+            <h2 id="form-title">Подтвердите, пожалуйста, участие</h2>
+            <p>
+              Ответ поможет нам точнее рассчитать рассадку, трансфер и детали
+              праздничного вечера.
+            </p>
+          </div>
+
+          <form class="rsvp-form" id="rsvpForm" novalidate>
+            <div class="field">
+              <label for="guestName">1. Напишите ФИО <span aria-hidden="true">*</span></label>
+              <input
+                id="guestName"
+                name="guestName"
+                type="text"
+                required
+                autocomplete="name"
+                placeholder="Петров Иван и Софья"
+              >
+              <p class="error">Пожалуйста, напишите ФИО гостей.</p>
+            </div>
+
+            <fieldset class="field">
+              <legend>2. Будете ли вы присутствовать на свадьбе? <span aria-hidden="true">*</span></legend>
+              <label class="choice">
+                <input type="radio" name="attendance" value="Да, будем" required>
+                <span>Да, будем</span>
+              </label>
+              <label class="choice">
+                <input type="radio" name="attendance" value="К сожалению, не получится">
+                <span>К сожалению, не получится</span>
+              </label>
+              <p class="error">Выберите один вариант.</p>
+            </fieldset>
+
+            <fieldset class="field">
+              <legend>3. Вы останетесь с ночевой? <span aria-hidden="true">*</span></legend>
+              <label class="choice">
+                <input type="radio" name="overnight" value="Да" required>
+                <span>Да</span>
+              </label>
+              <label class="choice">
+                <input type="radio" name="overnight" value="Нет">
+                <span>Нет</span>
+              </label>
+              <label class="choice">
+                <input type="radio" name="overnight" value="Пока не знаем">
+                <span>Пока не знаем</span>
+              </label>
+              <p class="error">Выберите один вариант.</p>
+            </fieldset>
+
+            <div class="field">
+              <label for="alcohol">4. Есть ли предпочтения по алкоголю</label>
+              <textarea
+                id="alcohol"
+                name="alcohol"
+                rows="3"
+                placeholder="Можно оставить пустым"
+              ></textarea>
+            </div>
+
+            <fieldset class="field">
+              <legend>5. Трансфер в г. Воткинск <span aria-hidden="true">*</span></legend>
+              <label class="choice">
+                <input type="radio" name="transfer" value="Нужен" required>
+                <span>Нужен</span>
+              </label>
+              <label class="choice">
+                <input type="radio" name="transfer" value="Не нужен">
+                <span>Не нужен</span>
+              </label>
+              <label class="choice">
+                <input type="radio" name="transfer" value="Пока не знаем">
+                <span>Пока не знаем</span>
+              </label>
+              <p class="error">Выберите один вариант.</p>
+            </fieldset>
+
+            <button class="button" type="submit">Сохранить анкету</button>
+            <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+
+            <div class="result-panel" id="resultPanel" hidden>
+              <label for="resultText">Готовый ответ</label>
+              <textarea id="resultText" rows="9" readonly></textarea>
+              <div class="result-actions">
+                <button class="button button--secondary" id="copyResult" type="button">Скопировать ответ</button>
+                <button class="button button--secondary" id="shareResult" type="button">Поделиться</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section class="section countdown-section" aria-labelledby="countdown-title">
+        <div class="flower-corner flower-corner--bottom" aria-hidden="true"></div>
+        <div class="section-inner narrow">
+          <p class="eyebrow">До нашего дня</p>
+          <h2 id="countdown-title">08.08.26</h2>
+          <div class="countdown" id="countdown" aria-live="polite">
+            <div>
+              <strong id="days">0</strong>
+              <span>дней</span>
+            </div>
+            <div>
+              <strong id="hours">0</strong>
+              <span>часов</span>
+            </div>
+            <div>
+              <strong id="minutes">0</strong>
+              <span>минут</span>
+            </div>
+            <div>
+              <strong id="seconds">0</strong>
+              <span>секунд</span>
+            </div>
+          </div>
+          <p class="closing">Будем очень ждать Вас на нашем празднике.</p>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
