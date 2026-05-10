@@ -8,11 +8,11 @@
       name="description"
       content="Именное свадебное приглашение Максима и Полины на 8 августа 2026 года."
     >
-    <meta name="theme-color" content="#d8177f">
+    <meta name="theme-color" content="#efe6d6">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@400;500;600;700&family=Marck+Script&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@400;500;600;700&family=Great+Vibes&family=Marck+Script&display=swap"
       rel="stylesheet"
     >
     <link rel="stylesheet" href="styles.css">
@@ -20,8 +20,8 @@
   <body>
     <a class="skip-link" href="#invite">Перейти к приглашению</a>
 
-    <audio id="weddingMusic" src="assets/basta-chistyi-kaif.mp3" loop preload="metadata"></audio>
-    <button class="music-toggle" id="musicToggle" type="button" aria-pressed="false">
+    <audio id="weddingMusic" src="assets/basta-chk-acoustic.mp3" preload="auto"></audio>
+    <button class="music-toggle" id="musicToggle" type="button" aria-pressed="false" aria-label="Включить музыку">
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <path d="M9 18V5l11-2v13"></path>
         <circle cx="6" cy="18" r="3"></circle>
@@ -30,51 +30,68 @@
       <span>Музыка</span>
     </button>
 
-    <main>
-      <section class="hero section" id="top" aria-labelledby="hero-title">
-        <div class="flower-corner flower-corner--top" aria-hidden="true"></div>
-        <div class="section-inner hero-inner">
-          <p class="eyebrow">8 августа 2026</p>
-          <h1 id="hero-title">Максим + Полина</h1>
-          <p class="hero-lead">
-            Эти ангелочки и не догадывались, что однажды обменяются кольцами
-          </p>
+    <main class="invitation">
+      <section class="section hero" id="top" aria-labelledby="hero-title">
+        <div class="floral-frame floral-frame--left" aria-hidden="true"></div>
+        <div class="floral-frame floral-frame--right" aria-hidden="true"></div>
 
-          <div class="childhood-grid" aria-label="Детские фотографии Максима и Полины">
-            <figure class="photo-card">
+        <div class="section-inner hero-inner">
+          <p class="soft-note">Узнали?</p>
+          <h1 id="hero-title">Максим + Полина</h1>
+          <p class="hero-kicker">Эти ангелочки и не догадывались, что однажды обменяются кольцами</p>
+
+          <div class="memory-spread" aria-label="Детские фотографии Максима и Полины">
+            <figure class="memory-card memory-card--maksim">
+              <span class="photo-pin" aria-hidden="true"></span>
               <img
                 src="assets/maksim-child.png"
                 alt="Детская фотография Максима"
-                width="570"
-                height="1410"
+                width="546"
+                height="1400"
               >
               <figcaption>Максим</figcaption>
             </figure>
-            <figure class="photo-card">
+
+            <div class="ring-lace" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+
+            <figure class="memory-card memory-card--polina">
+              <span class="photo-pin" aria-hidden="true"></span>
               <img
                 src="assets/polina-child.png"
                 alt="Детская фотография Полины"
-                width="600"
-                height="1340"
+                width="575"
+                height="1336"
               >
               <figcaption>Полина</figcaption>
             </figure>
           </div>
 
+          <div class="rings" aria-hidden="true">
+            <svg viewBox="0 0 120 78">
+              <circle cx="48" cy="43" r="24"></circle>
+              <circle cx="72" cy="43" r="24"></circle>
+              <path d="M57 15 66 4l10 11"></path>
+              <path d="M53 15h28"></path>
+            </svg>
+          </div>
           <p class="hero-signature">Максим + Полина</p>
         </div>
       </section>
 
       <section class="section invite-section" id="invite" aria-labelledby="invite-title">
         <div class="section-inner narrow">
-          <p class="eyebrow">Приглашение</p>
-          <h2 id="invite-title">Дорогие гости!</h2>
+          <div class="sparkles" aria-hidden="true"></div>
+          <h2 id="invite-title">Дорогие родные и близкие!</h2>
           <p class="large-text">
             Вы очень важные для нас люди! Поэтому приглашаем Вас разделить этот
-            день вместе с нами.
+            особенный день вместе с нами.
           </p>
 
-          <details class="link-maker">
+          <details class="link-maker" id="linkMaker" hidden>
             <summary>Создать именную ссылку</summary>
             <form id="linkForm" class="link-form">
               <label for="guestLinkName">Имена гостей</label>
@@ -103,87 +120,80 @@
         </div>
       </section>
 
-      <section class="section calendar-section" aria-labelledby="calendar-title">
-        <div class="section-inner split">
-          <div>
-            <p class="eyebrow">Дата</p>
+      <section class="section when-section" aria-labelledby="calendar-title">
+        <div class="section-inner blob-grid">
+          <article class="blob-card blob-card--date">
+            <p class="eyebrow">Когда?</p>
             <h2 id="calendar-title">Август 2026</h2>
-            <p>
-              Восьмой день восьмого месяца станет нашим семейным праздником.
-            </p>
-          </div>
-
-          <div class="calendar" aria-label="Календарь на август 2026 года">
-            <div class="calendar-header">
-              <span>Пн</span>
-              <span>Вт</span>
-              <span>Ср</span>
-              <span>Чт</span>
-              <span>Пт</span>
-              <span>Сб</span>
-              <span>Вс</span>
+            <div class="calendar" aria-label="Календарь на август 2026 года">
+              <div class="calendar-header">
+                <span>Пн</span>
+                <span>Вт</span>
+                <span>Ср</span>
+                <span>Чт</span>
+                <span>Пт</span>
+                <span>Сб</span>
+                <span>Вс</span>
+              </div>
+              <div class="calendar-grid">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+                <span>5</span>
+                <span>6</span>
+                <span>7</span>
+                <span class="wedding-day" aria-label="8 августа 2026, день свадьбы">8</span>
+                <span>9</span>
+                <span>10</span>
+                <span>11</span>
+                <span>12</span>
+                <span>13</span>
+                <span>14</span>
+                <span>15</span>
+                <span>16</span>
+                <span>17</span>
+                <span>18</span>
+                <span>19</span>
+                <span>20</span>
+                <span>21</span>
+                <span>22</span>
+                <span>23</span>
+                <span>24</span>
+                <span>25</span>
+                <span>26</span>
+                <span>27</span>
+                <span>28</span>
+                <span>29</span>
+                <span>30</span>
+                <span>31</span>
+              </div>
             </div>
-            <div class="calendar-grid">
-              <span aria-hidden="true"></span>
-              <span aria-hidden="true"></span>
-              <span aria-hidden="true"></span>
-              <span aria-hidden="true"></span>
-              <span aria-hidden="true"></span>
-              <span>1</span>
-              <span>2</span>
-              <span>3</span>
-              <span>4</span>
-              <span>5</span>
-              <span>6</span>
-              <span>7</span>
-              <span class="wedding-day" aria-label="8 августа 2026, день свадьбы">8</span>
-              <span>9</span>
-              <span>10</span>
-              <span>11</span>
-              <span>12</span>
-              <span>13</span>
-              <span>14</span>
-              <span>15</span>
-              <span>16</span>
-              <span>17</span>
-              <span>18</span>
-              <span>19</span>
-              <span>20</span>
-              <span>21</span>
-              <span>22</span>
-              <span>23</span>
-              <span>24</span>
-              <span>25</span>
-              <span>26</span>
-              <span>27</span>
-              <span>28</span>
-              <span>29</span>
-              <span>30</span>
-              <span>31</span>
-            </div>
-          </div>
-        </div>
-      </section>
+          </article>
 
-      <section class="section place-section" aria-labelledby="place-title">
-        <div class="flower-corner flower-corner--middle" aria-hidden="true"></div>
-        <div class="section-inner narrow">
-          <p class="eyebrow">Место проведения</p>
-          <h2 id="place-title">«Рояль у дома»</h2>
-          <p class="large-text">д. Сизево, ул. Дивная горка, 14</p>
-          <a class="button" href="https://yandex.ru/maps/-/CPckrUN-" target="_blank" rel="noreferrer">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11z"></path>
-              <circle cx="12" cy="10" r="2.5"></circle>
-            </svg>
-            Открыть в Яндекс Картах
-          </a>
+          <article class="blob-card blob-card--place" aria-labelledby="place-title">
+            <p class="eyebrow">Где?</p>
+            <h2 id="place-title">«Рояль у дома»</h2>
+            <p>д. Сизево, ул. Дивная горка, 14</p>
+            <a class="pretty-link" href="https://yandex.ru/maps/-/CPckrUN-" target="_blank" rel="noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11z"></path>
+                <circle cx="12" cy="10" r="2.5"></circle>
+              </svg>
+              Открыть на карте
+            </a>
+          </article>
         </div>
       </section>
 
       <section class="section program-section" aria-labelledby="program-title">
-        <div class="section-inner">
-          <p class="eyebrow">Программа</p>
+        <div class="section-inner green-panel">
+          <p class="eyebrow eyebrow--light">Программа мероприятия</p>
           <h2 id="program-title">Как пройдет день</h2>
           <div class="timeline">
             <article class="timeline-item">
@@ -207,15 +217,9 @@
       </section>
 
       <section class="section details-section" aria-labelledby="details-title">
-        <div class="section-inner details-grid">
-          <div>
-            <p class="eyebrow">Дресс-код</p>
-            <h2 id="details-title">Ваша красота, Ваш выбор</h2>
-            <p>
-              Мы даем волю вашей фантазии: выбирайте любой наряд, который
-              подчеркнет вашу красоту. Просим только воздержаться от белого.
-            </p>
-          </div>
+        <div class="section-inner paper-panel">
+          <p class="eyebrow">Детали</p>
+          <h2 id="details-title">Просим учесть</h2>
           <div class="details-list" aria-label="Важные детали">
             <article>
               <h3>Без цветов</h3>
@@ -240,9 +244,28 @@
         </div>
       </section>
 
+      <section class="section dress-section" aria-labelledby="dress-title">
+        <div class="section-inner dress-panel">
+          <p class="eyebrow eyebrow--light">Дресс-код</p>
+          <h2 id="dress-title">Ваша красота, Ваш выбор</h2>
+          <p>
+            Мы даем волю вашей фантазии: выбирайте любой наряд, который
+            подчеркнет вашу красоту. Просим только воздержаться от белого.
+          </p>
+          <div class="palette" aria-label="Палитра настроения">
+            <span style="--swatch: #d8177f"></span>
+            <span style="--swatch: #f06aa4"></span>
+            <span style="--swatch: #2e8b45"></span>
+            <span style="--swatch: #8fac72"></span>
+            <span style="--swatch: #f1c9ad"></span>
+            <span style="--swatch: #6b6f4f"></span>
+          </div>
+        </div>
+      </section>
+
       <section class="section form-section" aria-labelledby="form-title">
         <div class="section-inner form-layout">
-          <div>
+          <div class="form-copy">
             <p class="eyebrow">Анкета гостя</p>
             <h2 id="form-title">Подтвердите, пожалуйста, участие</h2>
             <p>
@@ -338,7 +361,7 @@
       </section>
 
       <section class="section countdown-section" aria-labelledby="countdown-title">
-        <div class="flower-corner flower-corner--bottom" aria-hidden="true"></div>
+        <div class="floral-frame floral-frame--bottom" aria-hidden="true"></div>
         <div class="section-inner narrow">
           <p class="eyebrow">До нашего дня</p>
           <h2 id="countdown-title">08.08.26</h2>

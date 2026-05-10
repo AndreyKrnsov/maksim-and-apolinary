@@ -1,15 +1,31 @@
 const RSVP_ENDPOINT = "";
+const GOOGLE_FORM_ACTION = "";
+const GOOGLE_FORM_FIELDS = {
+  guestName: "",
+  attendance: "",
+  overnight: "",
+  alcohol: "",
+  transfer: "",
+  invitationFor: "",
+  submittedAt: "",
+};
+
 const WEDDING_DATE = new Date("2026-08-08T00:00:00+04:00");
+const MUSIC_START = 20;
+const MUSIC_END = 49;
 
 const params = new URLSearchParams(window.location.search);
 const invitedGuests = (params.get("guest") || params.get("guests") || params.get("to") || "").trim();
 
 const inviteTitle = document.querySelector("#invite-title");
 const guestNameInput = document.querySelector("#guestName");
+const linkMaker = document.querySelector("#linkMaker");
 
 if (invitedGuests) {
   inviteTitle.textContent = `Дорогие ${invitedGuests}!`;
   guestNameInput.value = invitedGuests;
+} else {
+  linkMaker.hidden = false;
 }
 
 const music = document.querySelector("#weddingMusic");
@@ -19,11 +35,27 @@ let musicWasRequested = false;
 
 function setMusicButton(isPlaying) {
   musicToggle.setAttribute("aria-pressed", String(isPlaying));
+  musicToggle.setAttribute("aria-label", isPlaying ? "Выключить музыку" : "Включить музыку");
   musicToggleText.textContent = isPlaying ? "Играет" : "Музыка";
+}
+
+function seekMusicToStart() {
+  try {
+    if (Number.isFinite(music.duration)) {
+      music.currentTime = MUSIC_START;
+    }
+  } catch {
+    // Some browsers only allow seeking after enough metadata is loaded.
+  }
 }
 
 async function playMusic() {
   musicWasRequested = true;
+
+  if (music.currentTime < MUSIC_START || music.currentTime >= MUSIC_END) {
+    seekMusicToStart();
+  }
+
   try {
     await music.play();
     setMusicButton(true);
@@ -31,6 +63,16 @@ async function playMusic() {
     setMusicButton(false);
   }
 }
+
+music.addEventListener("loadedmetadata", seekMusicToStart, { once: true });
+music.addEventListener("timeupdate", () => {
+  if (music.currentTime >= MUSIC_END) {
+    music.currentTime = MUSIC_START;
+    if (!music.paused) {
+      music.play();
+    }
+  }
+});
 
 musicToggle.addEventListener("click", async () => {
   if (music.paused) {
@@ -131,7 +173,7 @@ function getFormData(form) {
     overnight: String(formData.get("overnight") || ""),
     alcohol: String(formData.get("alcohol") || "").trim() || "Без предпочтений",
     transfer: String(formData.get("transfer") || ""),
-    invitationFor: invitedGuests || "Гости",
+    invitationFor: invitedGuests || "Гости без именной ссылки",
     submittedAt: new Date().toLocaleString("ru-RU"),
   };
 }
@@ -149,7 +191,33 @@ function formatAnswer(data) {
   ].join("\n");
 }
 
+function googleFormIsConfigured() {
+  const requiredFields = ["guestName", "attendance", "overnight", "transfer"];
+  return Boolean(GOOGLE_FORM_ACTION) && requiredFields.every((field) => GOOGLE_FORM_FIELDS[field]);
+}
+
+async function sendToGoogleForm(data) {
+  const formData = new FormData();
+  Object.entries(GOOGLE_FORM_FIELDS).forEach(([key, entryId]) => {
+    if (entryId) {
+      formData.append(entryId, data[key]);
+    }
+  });
+
+  await fetch(GOOGLE_FORM_ACTION, {
+    method: "POST",
+    mode: "no-cors",
+    body: formData,
+  });
+
+  return { sent: true, provider: "google-forms" };
+}
+
 async function sendAnswer(data) {
+  if (googleFormIsConfigured()) {
+    return sendToGoogleForm(data);
+  }
+
   if (!RSVP_ENDPOINT) {
     return { sent: false };
   }
@@ -164,7 +232,7 @@ async function sendAnswer(data) {
     throw new Error(`RSVP endpoint failed with ${response.status}`);
   }
 
-  return { sent: true };
+  return { sent: true, provider: "json-endpoint" };
 }
 
 rsvpForm.addEventListener("submit", async (event) => {
