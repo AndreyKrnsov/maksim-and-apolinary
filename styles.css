@@ -30,9 +30,9 @@ body {
   font-size: 1.05rem;
   line-height: 1.55;
   background:
-    radial-gradient(circle at 12% 8%, rgba(255, 248, 223, 0.38), transparent 14rem),
-    radial-gradient(circle at 84% 86%, rgba(138, 162, 79, 0.2), transparent 18rem),
-    linear-gradient(135deg, #d9b2ee 0%, #e6c3f3 52%, #d3a7ed 100%);
+    radial-gradient(circle at 14% 8%, rgba(255, 248, 223, 0.48), transparent 16rem),
+    radial-gradient(circle at 88% 88%, rgba(138, 162, 79, 0.16), transparent 20rem),
+    linear-gradient(135deg, #d8afea 0%, #e7c5f3 48%, #d4a6ed 100%);
 }
 
 body::before {
@@ -97,7 +97,7 @@ a {
 .music-toggle {
   position: fixed;
   top: 1rem;
-  right: max(1rem, calc((100vw - min(100vw - 2rem, 1120px)) / 2 + 1rem));
+  right: 1rem;
   z-index: 15;
   display: inline-flex;
   align-items: center;
@@ -140,15 +140,15 @@ a {
 
 .invitation {
   position: relative;
-  width: min(100% - 2rem, 1120px);
-  margin: 1rem auto;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
   overflow: hidden;
-  border-radius: 2rem;
   background:
-    radial-gradient(circle at 0% 7%, rgba(228, 63, 150, 0.15), transparent 14rem),
-    radial-gradient(circle at 100% 92%, rgba(138, 162, 79, 0.2), transparent 16rem),
+    radial-gradient(circle at 7% 10%, rgba(228, 63, 150, 0.2), transparent 16rem),
+    radial-gradient(circle at 96% 92%, rgba(138, 162, 79, 0.2), transparent 18rem),
     var(--cream);
-  box-shadow: var(--shadow);
+  box-shadow: none;
 }
 
 .invitation::before,
@@ -162,10 +162,10 @@ a {
 .invitation::before {
   z-index: 0;
   background:
-    radial-gradient(ellipse at -16% 22%, transparent 0 31%, var(--pink-wave) 31.4% 37%, transparent 37.5%),
-    radial-gradient(ellipse at 112% 52%, transparent 0 32%, var(--pink-wave) 32.4% 38%, transparent 38.5%),
-    radial-gradient(ellipse at 4% 88%, transparent 0 30%, var(--pink-wave) 30.4% 36%, transparent 36.5%);
-  opacity: 0.7;
+    radial-gradient(ellipse at -14% 18%, transparent 0 32%, rgba(228, 63, 150, 0.28) 32.4% 38%, transparent 38.5%),
+    radial-gradient(ellipse at 114% 58%, transparent 0 32%, rgba(228, 63, 150, 0.24) 32.4% 38%, transparent 38.5%),
+    radial-gradient(ellipse at 2% 92%, transparent 0 30%, rgba(138, 162, 79, 0.2) 30.4% 36%, transparent 36.5%);
+  opacity: 0.86;
 }
 
 .invitation::after {
@@ -185,7 +185,27 @@ a {
   padding: clamp(3rem, 7vw, 5.5rem) 0;
 }
 
+.section + .section::before {
+  position: absolute;
+  top: -2.2rem;
+  left: -6vw;
+  z-index: 0;
+  width: 112vw;
+  height: clamp(3.5rem, 7vw, 6rem);
+  border-radius: 50%;
+  background: linear-gradient(90deg, #e43f96 0%, #f36eb3 48%, #e43f96 100%);
+  box-shadow: 0 10px 30px rgba(228, 63, 150, 0.18);
+  content: "";
+  transform: rotate(-2deg);
+}
+
+.section:nth-of-type(even)::before {
+  transform: rotate(2deg);
+}
+
 .section-inner {
+  position: relative;
+  z-index: 2;
   width: min(100% - 2rem, 920px);
   margin: 0 auto;
 }
@@ -275,36 +295,28 @@ p {
   position: relative;
 }
 
-.hero-inner::before,
-.hero-inner::after,
-.invite-section::before,
-.program-section::after,
-.form-section::after {
+.decor {
   position: absolute;
-  z-index: -1;
+  z-index: 1;
+  display: block;
+  width: var(--decor-size, 12rem);
+  height: auto;
   pointer-events: none;
-  content: "";
+  user-select: none;
 }
 
-.hero-inner::before {
-  top: 1rem;
-  left: -2rem;
-  width: 16rem;
-  height: 4.5rem;
-  border-bottom: 0.7rem solid var(--pink-soft);
-  border-radius: 50%;
-  transform: rotate(-16deg);
-  opacity: 0.68;
+.decor--hero-flower {
+  --decor-size: clamp(8rem, 17vw, 16rem);
+  top: 4.8rem;
+  left: clamp(0.5rem, 5vw, 6rem);
+  transform: rotate(-14deg);
 }
 
-.hero-inner::after {
-  right: -1.6rem;
+.decor--hero-arrow {
+  --decor-size: clamp(11rem, 24vw, 22rem);
+  right: clamp(-4rem, 2vw, 4rem);
   bottom: 4rem;
-  width: 6rem;
-  height: 6rem;
-  background: var(--olive);
-  clip-path: polygon(50% 0, 61% 34%, 98% 20%, 71% 50%, 98% 80%, 61% 66%, 50% 100%, 39% 66%, 2% 80%, 29% 50%, 2% 20%, 39% 34%);
-  opacity: 0.92;
+  transform: rotate(-8deg);
 }
 
 .hero-kicker {
@@ -319,10 +331,10 @@ p {
 .memory-spread {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 2rem minmax(0, 1fr);
-  gap: 0.25rem;
-  align-items: center;
-  width: min(100%, 760px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(0.8rem, 5vw, 4rem);
+  align-items: end;
+  width: min(100%, 900px);
   margin: 1.2rem auto 0;
 }
 
@@ -332,20 +344,8 @@ p {
   place-items: end center;
   min-width: 0;
   margin: 0;
-  padding: clamp(0.55rem, 1.4vw, 0.9rem) clamp(0.45rem, 1.2vw, 0.8rem) 2.35rem;
-  border: 0.16rem solid rgba(255, 248, 223, 0.92);
-  border-radius: 2.2rem 2.2rem 1.2rem 1.2rem;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.14), transparent 34%), var(--olive);
-  box-shadow: 0 14px 28px rgba(76, 72, 47, 0.22);
-}
-
-.memory-card::after {
-  position: absolute;
-  inset: 0.55rem;
-  border: 1px solid rgba(255, 248, 223, 0.5);
-  border-radius: 1.6rem 1.6rem 0.85rem 0.85rem;
-  pointer-events: none;
-  content: "";
+  padding: 0 0 2rem;
+  background: transparent;
 }
 
 .memory-card--maksim {
@@ -360,69 +360,28 @@ p {
   position: relative;
   z-index: 1;
   width: 100%;
-  height: clamp(14rem, 26vw, 17.5rem);
+  height: clamp(22rem, 38vw, 38rem);
   object-fit: contain;
   object-position: center bottom;
-  filter: drop-shadow(0 8px 10px rgba(38, 34, 26, 0.18));
+  filter: drop-shadow(0 14px 18px rgba(38, 34, 26, 0.18));
 }
 
 .memory-card figcaption {
   position: absolute;
   right: 0.8rem;
-  bottom: 0.65rem;
+  bottom: 0;
   left: 0.8rem;
   z-index: 1;
-  color: var(--cream);
+  color: var(--pink);
   font-family: "Pangolin", "Nunito", Arial, sans-serif;
-  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-size: clamp(1.15rem, 2.4vw, 1.6rem);
+  font-weight: 800;
   line-height: 1;
+  text-shadow: 0 2px 0 rgba(255, 248, 223, 0.9);
 }
 
 .photo-pin {
-  position: absolute;
-  top: 0.85rem;
-  right: 0.9rem;
-  z-index: 2;
-  width: 0.85rem;
-  height: 0.85rem;
-  border-radius: 50%;
-  background: var(--pink);
-  box-shadow: 0 0 0 0.22rem rgba(255, 248, 223, 0.92);
-}
-
-.ring-lace {
-  position: relative;
-  z-index: 3;
-  display: grid;
-  gap: 0.55rem;
-  justify-items: center;
-  pointer-events: none;
-}
-
-.ring-lace span {
-  width: 1.05rem;
-  height: 1.05rem;
-  border: 0.18rem solid var(--cream);
-  border-radius: 50%;
-  background: rgba(111, 132, 47, 0.58);
-}
-
-.ring-lace::before,
-.ring-lace::after {
-  position: absolute;
-  top: 10%;
-  bottom: 10%;
-  width: 0.12rem;
-  background: var(--pink);
-  content: "";
-}
-
-.ring-lace::before {
-  transform: rotate(24deg);
-}
-
-.ring-lace::after {
-  transform: rotate(-24deg);
+  display: none;
 }
 
 .rings {
@@ -431,14 +390,10 @@ p {
   margin: 1.45rem auto 0.45rem;
 }
 
-.rings svg {
-  width: 5.2rem;
+.rings img {
+  width: clamp(8rem, 18vw, 15rem);
   height: auto;
-  fill: none;
-  stroke: #c58a29;
-  stroke-width: 6;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+  filter: drop-shadow(0 10px 16px rgba(107, 75, 15, 0.16));
 }
 
 .hero-signature,
@@ -450,26 +405,42 @@ p {
   line-height: 1.08;
 }
 
-.sparkles {
-  height: 6.5rem;
-  margin: -1.2rem auto 0.7rem;
-  background: url("assets/sparkles.svg") center / contain no-repeat;
-  filter: saturate(1.25);
-}
-
 .invite-section {
   padding-top: clamp(2rem, 5vw, 4rem);
 }
 
-.invite-section::before {
-  right: 2rem;
-  bottom: -1rem;
-  width: min(34vw, 18rem);
-  height: 5rem;
-  border-top: 0.75rem solid var(--pink-soft);
-  border-radius: 50%;
+.decor--invite-flower {
+  --decor-size: clamp(7rem, 15vw, 13rem);
+  right: clamp(0.5rem, 6vw, 7rem);
+  top: 1.2rem;
   transform: rotate(12deg);
-  opacity: 0.72;
+}
+
+.decor--when-arrow {
+  --decor-size: clamp(12rem, 26vw, 24rem);
+  left: clamp(-5rem, 1vw, 2rem);
+  bottom: 1rem;
+  transform: rotate(-4deg);
+}
+
+.decor--program-flower {
+  --decor-size: clamp(9rem, 18vw, 18rem);
+  right: clamp(-3rem, 4vw, 5rem);
+  bottom: -1rem;
+  transform: rotate(15deg);
+}
+
+.decor--details-arrow {
+  --decor-size: clamp(12rem, 26vw, 22rem);
+  right: clamp(-6rem, 1vw, 2rem);
+  top: -1rem;
+}
+
+.decor--form-flower {
+  --decor-size: clamp(8rem, 16vw, 15rem);
+  left: clamp(-3rem, 3vw, 4rem);
+  bottom: 1rem;
+  transform: rotate(-14deg);
 }
 
 .invite-section h2 {
@@ -771,16 +742,6 @@ textarea:focus {
   color: inherit;
 }
 
-.program-section::after {
-  right: 2rem;
-  bottom: -1rem;
-  width: 9rem;
-  height: 9rem;
-  background: var(--pink-soft);
-  clip-path: polygon(50% 4%, 63% 36%, 97% 20%, 72% 50%, 97% 80%, 63% 64%, 50% 96%, 37% 64%, 3% 80%, 28% 50%, 3% 20%, 37% 36%);
-  opacity: 0.72;
-}
-
 .timeline {
   display: grid;
   gap: 1rem;
@@ -1002,10 +963,6 @@ textarea:focus {
 }
 
 @media (min-width: 760px) {
-  body {
-    padding: 1.25rem 0;
-  }
-
   .hero {
     min-height: 760px;
   }
@@ -1035,7 +992,10 @@ textarea:focus {
   .music-toggle {
     top: 0.75rem;
     right: 0.75rem;
+    display: grid;
+    place-items: center;
     width: 2.85rem;
+    height: 2.85rem;
     padding-inline: 0;
   }
 
@@ -1062,41 +1022,32 @@ textarea:focus {
     padding-top: 4.5rem;
   }
 
-  .hero-inner::before {
-    left: -4rem;
-    width: 12rem;
+  .decor--hero-flower {
+    --decor-size: 7rem;
+    top: 5rem;
+    left: -2.8rem;
   }
 
-  .hero-inner::after {
-    width: 3.5rem;
-    height: 3.5rem;
-    right: 0.2rem;
+  .decor--hero-arrow {
+    --decor-size: 10rem;
+    right: -2.6rem;
+    bottom: 5.6rem;
   }
 
   .memory-spread {
-    grid-template-columns: minmax(0, 1fr) 1.35rem minmax(0, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .memory-card {
-    padding: 0.5rem 0.4rem 1.9rem;
-    border-radius: 1.35rem 1.35rem 0.9rem 0.9rem;
-  }
-
-  .memory-card::after {
-    inset: 0.4rem;
-    border-radius: 1rem 1rem 0.65rem 0.65rem;
+    padding: 0 0 1.9rem;
   }
 
   .memory-card img {
-    height: clamp(12.4rem, 55vw, 16rem);
+    height: clamp(17.5rem, 68vw, 24rem);
   }
 
   .memory-card figcaption {
     font-size: 0.98rem;
-  }
-
-  .ring-lace {
-    gap: 0.42rem;
   }
 
   .link-form-row {
