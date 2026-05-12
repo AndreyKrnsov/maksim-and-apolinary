@@ -10,7 +10,7 @@ const GOOGLE_FORM_FIELDS = {
   submittedAt: "",
 };
 
-const WEDDING_DATE = new Date("2026-08-08T00:00:00+04:00");
+const WEDDING_DATE = new Date("2026-08-08T15:00:00+04:00");
 const MUSIC_START = 20;
 const MUSIC_END = 49;
 
@@ -124,7 +124,8 @@ async function copyText(text) {
   helper.value = text;
   helper.setAttribute("readonly", "");
   helper.style.position = "fixed";
-  helper.style.opacity = "0";
+  helper.style.left = "-9999px";
+  helper.style.top = "0";
   document.body.append(helper);
   helper.select();
   const copied = document.execCommand("copy");
@@ -302,7 +303,7 @@ function updateCountdown() {
     countdownFields.hours.textContent = "0";
     countdownFields.minutes.textContent = "0";
     countdownFields.seconds.textContent = "0";
-    document.querySelector(".closing").textContent = "Наш день уже наступил.";
+    document.querySelector(".closing").textContent = "Уже ждем Вас на нашем празднике!";
     return;
   }
 

@@ -11,6 +11,8 @@
   --muted: #7a7169;
   --white: #fffdf7;
   --error: #b91c1c;
+  --wave-pink: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20240%2032'%3E%3Cpath%20d='M0%2016%20C30%202%2060%2030%2090%2016%20S150%202%20180%2016%20S220%2030%20240%2016'%20fill='none'%20stroke='%23f19ac7'%20stroke-width='8'%20stroke-linecap='round'/%3E%3C/svg%3E");
+  --wave-olive: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20240%2032'%3E%3Cpath%20d='M0%2016%20C30%2030%2060%202%2090%2016%20S150%2030%20180%2016%20S220%202%20240%2016'%20fill='none'%20stroke='%238aa24f'%20stroke-width='8'%20stroke-linecap='round'/%3E%3C/svg%3E");
 }
 
 * {
@@ -28,7 +30,7 @@ body {
   font-family: "Nunito", Arial, sans-serif;
   font-size: 1.05rem;
   line-height: 1.55;
-  background: var(--lavender);
+  background: var(--cream);
 }
 
 img,
@@ -122,80 +124,57 @@ a {
 
 .invitation {
   position: relative;
-  width: min(100%, 760px);
+  width: 100%;
   min-height: 100vh;
-  margin: 0 auto;
+  margin: 0;
   overflow: hidden;
   background: var(--cream);
-}
-
-.invitation::before,
-.invitation::after {
-  position: absolute;
-  z-index: 0;
-  pointer-events: none;
-  content: "";
-}
-
-.invitation::before {
-  top: 8rem;
-  left: -24rem;
-  width: 64rem;
-  height: 5.7rem;
-  border-radius: 58% 42% 62% 38% / 50% 57% 43% 50%;
-  background: var(--pink-soft);
-  transform: rotate(-16deg);
-}
-
-.invitation::after {
-  right: -25rem;
-  bottom: -5rem;
-  width: 62rem;
-  height: 5.9rem;
-  border-radius: 40% 60% 44% 56% / 54% 46% 54% 46%;
-  background: var(--olive);
-  transform: rotate(-13deg);
 }
 
 .section {
   position: relative;
   z-index: 2;
-  padding: clamp(3.25rem, 8vw, 5.5rem) 0;
+  padding: clamp(4rem, 8vw, 7rem) 0;
 }
 
 .section + .section {
-  padding-top: clamp(4.75rem, 9vw, 6.2rem);
+  padding-top: clamp(5.25rem, 9vw, 7.5rem);
 }
 
 .section + .section::before {
   position: absolute;
-  top: -1.6rem;
-  left: -5rem;
+  top: 1.2rem;
+  left: 0;
+  right: 0;
   z-index: 0;
-  width: 54rem;
-  height: clamp(2.9rem, 8vw, 4.7rem);
-  border-radius: 42% 58% 50% 50% / 55% 48% 52% 45%;
-  background: var(--pink-soft);
+  width: 100%;
+  height: clamp(1.45rem, 2.4vw, 2.2rem);
+  background-color: var(--cream);
+  background-image: var(--wave-pink);
+  background-repeat: repeat-x;
+  background-position: center;
+  background-size: 14rem 2rem;
   content: "";
-  transform: rotate(3deg);
+  transform: none;
 }
 
 .section:nth-of-type(even)::before {
-  left: auto;
-  right: -6rem;
-  background: var(--olive);
-  transform: rotate(-4deg);
+  left: 0;
+  right: 0;
+  background-color: var(--cream);
+  background-image: var(--wave-olive);
+  transform: none;
 }
 
 .section-inner {
   position: relative;
   z-index: 2;
-  width: min(100% - 2rem, 660px);
+  width: min(100% - clamp(2rem, 8vw, 8rem), 1180px);
   margin: 0 auto;
 }
 
 .narrow {
-  width: min(100% - 2rem, 570px);
+  width: min(100% - clamp(2rem, 8vw, 8rem), 820px);
   text-align: center;
 }
 
@@ -203,7 +182,7 @@ h1,
 h2,
 h3,
 p {
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
 h1,
@@ -271,10 +250,11 @@ p {
 }
 
 .hero {
-  min-height: min(100svh, 850px);
+  min-height: auto;
   display: flex;
-  align-items: center;
-  padding-top: clamp(4.4rem, 10vw, 6rem);
+  align-items: flex-start;
+  padding-top: clamp(5rem, 7vw, 7rem);
+  padding-bottom: clamp(4.2rem, 7vw, 6.5rem);
   text-align: center;
 }
 
@@ -293,25 +273,25 @@ p {
 }
 
 .decor--hero-flower {
-  --decor-size: clamp(7rem, 25vw, 14rem);
-  top: 4.8rem;
-  left: max(-1.2rem, calc((100vw - 760px) / 2 + 0.5rem));
+  --decor-size: clamp(4.8rem, 10vw, 8rem);
+  top: clamp(5rem, 6vw, 6.6rem);
+  left: clamp(1rem, 7vw, 7rem);
   transform: rotate(-14deg);
 }
 
 .decor--hero-arrow {
-  --decor-size: clamp(9rem, 31vw, 18rem);
-  right: max(-3.2rem, calc((100vw - 760px) / 2 + 0.2rem));
-  bottom: 4rem;
+  --decor-size: clamp(6.5rem, 12vw, 10rem);
+  right: clamp(1rem, 8vw, 8rem);
+  bottom: clamp(1.5rem, 4vw, 3.5rem);
   transform: rotate(-8deg);
 }
 
 .hero-kicker {
-  width: min(100%, 35rem);
-  margin: 0 auto 1.5rem;
+  width: min(100%, 46rem);
+  margin: 0 auto clamp(1.7rem, 4vw, 3rem);
   color: var(--ink);
   font-family: "Pangolin", "Nunito", Arial, sans-serif;
-  font-size: clamp(1.18rem, 4.2vw, 1.7rem);
+  font-size: clamp(1.2rem, 2.6vw, 1.85rem);
   line-height: 1.22;
 }
 
@@ -319,10 +299,10 @@ p {
   position: relative;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(0.4rem, 4vw, 2.5rem);
+  gap: clamp(1.6rem, 7vw, 7rem);
   align-items: end;
-  width: min(100%, 650px);
-  margin: 1.2rem auto 0;
+  width: min(100%, 980px);
+  margin: 0 auto;
 }
 
 .memory-card {
@@ -346,7 +326,7 @@ p {
   position: relative;
   z-index: 1;
   width: 100%;
-  height: clamp(21rem, 63vw, 38rem);
+  height: clamp(19rem, 34vw, 32rem);
   object-fit: contain;
   object-position: center bottom;
   filter: drop-shadow(0 9px 0 var(--white)) drop-shadow(5px 15px 0 var(--pink-soft));
@@ -373,11 +353,11 @@ p {
 .rings {
   display: grid;
   place-items: center;
-  margin: 1.45rem auto 0.45rem;
+  margin: clamp(1.8rem, 4vw, 3.2rem) auto 0.55rem;
 }
 
 .rings img {
-  width: clamp(7.5rem, 28vw, 13.5rem);
+  width: clamp(8.5rem, 18vw, 15rem);
   height: auto;
 }
 
@@ -395,37 +375,26 @@ p {
 }
 
 .decor--invite-flower {
-  --decor-size: clamp(6rem, 20vw, 11rem);
-  right: max(-0.8rem, calc((100vw - 760px) / 2 + 0.8rem));
-  top: 1.2rem;
+  --decor-size: clamp(4.8rem, 9vw, 7rem);
+  right: clamp(1rem, 8vw, 8rem);
+  top: clamp(2rem, 5vw, 4rem);
   transform: rotate(12deg);
 }
 
 .decor--when-arrow {
-  --decor-size: clamp(9rem, 29vw, 17rem);
-  left: max(-4.5rem, calc((100vw - 760px) / 2 - 2rem));
-  bottom: 1rem;
-  transform: rotate(-4deg);
+  display: none;
 }
 
 .decor--program-flower {
-  --decor-size: clamp(7rem, 24vw, 14rem);
-  right: max(-3.2rem, calc((100vw - 760px) / 2 - 1rem));
-  bottom: -1rem;
-  transform: rotate(15deg);
+  display: none;
 }
 
 .decor--details-arrow {
-  --decor-size: clamp(9rem, 30vw, 17rem);
-  right: max(-4.5rem, calc((100vw - 760px) / 2 - 2rem));
-  top: -1rem;
+  display: none;
 }
 
 .decor--form-flower {
-  --decor-size: clamp(6.5rem, 22vw, 12rem);
-  left: max(-2.8rem, calc((100vw - 760px) / 2 - 0.5rem));
-  bottom: 1rem;
-  transform: rotate(-14deg);
+  display: none;
 }
 
 .invite-section h2 {
@@ -677,7 +646,6 @@ textarea:focus {
 }
 
 .green-panel h2,
-.dress-panel h2,
 .paper-panel h2 {
   color: var(--pink);
 }
@@ -758,20 +726,27 @@ textarea:focus {
   margin-bottom: 1.35rem;
 }
 
-.dress-panel p {
+.dress-panel .dress-text {
   width: min(100%, 43rem);
   margin: 0 auto;
-  font-size: clamp(1.1rem, 4vw, 1.35rem);
+  color: var(--ink);
+  font-family: "Pangolin", "Nunito", Arial, sans-serif;
+  font-size: clamp(1.35rem, 2.8vw, 2rem);
   font-weight: 800;
+  line-height: 1.35;
 }
 
 .form-layout {
   display: grid;
-  gap: 1.75rem;
+  gap: clamp(2rem, 6vw, 5rem);
 }
 
 .form-copy {
   text-align: center;
+}
+
+.form-copy h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
 }
 
 .rsvp-form {
@@ -904,11 +879,20 @@ textarea:focus {
 
 @media (min-width: 760px) {
   body {
-    padding-inline: 2rem;
+    padding-inline: 0;
   }
 
   .hero {
-    min-height: 760px;
+    min-height: auto;
+  }
+
+  .blob-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .blob-card--place {
+    padding-top: clamp(2.25rem, 5vw, 4.5rem);
   }
 
   .form-layout {
@@ -925,7 +909,7 @@ textarea:focus {
 
 @media (min-width: 900px) {
   body {
-    padding-block: 2rem;
+    padding-block: 0;
   }
 }
 
@@ -949,16 +933,6 @@ textarea:focus {
     margin: 0;
   }
 
-  .invitation::before {
-    top: 8.2rem;
-    left: -30rem;
-  }
-
-  .invitation::after {
-    right: -31rem;
-    bottom: -5rem;
-  }
-
   .section {
     padding: 3rem 0;
   }
@@ -968,11 +942,13 @@ textarea:focus {
   }
 
   .section + .section::before {
-    left: -11rem;
+    left: 0;
+    right: 0;
   }
 
   .section:nth-of-type(even)::before {
-    right: -12rem;
+    left: 0;
+    right: 0;
   }
 
   .section-inner,
@@ -985,15 +961,15 @@ textarea:focus {
   }
 
   .decor--hero-flower {
-    --decor-size: 7rem;
-    top: 5rem;
-    left: -2.8rem;
+    display: none;
   }
 
   .decor--hero-arrow {
-    --decor-size: 10rem;
-    right: -2.6rem;
-    bottom: 5.6rem;
+    display: none;
+  }
+
+  .decor--invite-flower {
+    display: none;
   }
 
   .memory-spread {
