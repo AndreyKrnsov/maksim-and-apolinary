@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
   <head>
     <meta charset="utf-8">
@@ -39,7 +39,7 @@
           <h1 id="hero-title">Максим + Полина</h1>
           <p class="hero-kicker">Эти ангелочки и не догадывались, что однажды обменяются кольцами</p>
 
-          <div class="memory-spread" aria-label="Детские фотографии Максима и Полины">
+          <div class="memory-spread" role="group" aria-label="Детские фотографии Максима и Полины">
             <figure class="memory-card memory-card--maksim">
               <span class="photo-pin" aria-hidden="true"></span>
               <img
@@ -114,7 +114,7 @@
           <article class="blob-card blob-card--date">
             <p class="eyebrow">Когда?</p>
             <h2 id="calendar-title">Август 2026</h2>
-            <div class="calendar" aria-label="Календарь на август 2026 года">
+            <div class="calendar" role="group" aria-label="Календарь на август 2026 года">
               <div class="calendar-header">
                 <span>Пн</span>
                 <span>Вт</span>
@@ -137,7 +137,10 @@
                 <span>5</span>
                 <span>6</span>
                 <span>7</span>
-                <span class="wedding-day" aria-label="8 августа 2026, день свадьбы">8</span>
+                <time class="wedding-day" datetime="2026-08-08">
+                  <span aria-hidden="true">8</span>
+                  <span class="visually-hidden">8 августа 2026, день свадьбы</span>
+                </time>
                 <span>9</span>
                 <span>10</span>
                 <span>11</span>
@@ -211,24 +214,24 @@
         <div class="section-inner paper-panel">
           <p class="eyebrow">Детали</p>
           <h2 id="details-title">Просим учесть</h2>
-          <div class="details-list" aria-label="Важные детали">
-            <article>
+          <ul class="details-list">
+            <li>
               <p>
                 Очень просим не дарить нам цветы, так как из-за свадебного
                 путешествия мы не успеем насладиться их красотой.
               </p>
-            </article>
-            <article>
+            </li>
+            <li>
               <p>
                 Мы ценим Вашу заботу и внимание к нашей семье. Если Вы
                 задумываетесь о подарке, будем рады вкладу в наш семейный
                 бюджет. Это поможет нам осуществить мечты.
               </p>
-            </article>
-            <article>
+            </li>
+            <li>
               <p>Будем благодарны, если Вы воздержитесь от криков «Горько!» на празднике.</p>
-            </article>
-          </div>
+            </li>
+          </ul>
         </div>
       </section>
 
