@@ -16,16 +16,61 @@ const MUSIC_END = 49;
 
 const params = new URLSearchParams(window.location.search);
 const invitedGuests = (params.get("guest") || params.get("guests") || params.get("to") || "").trim();
+const greetingParam = (params.get("greeting") || "").trim();
 
 const inviteTitle = document.querySelector("#invite-title");
 const guestNameInput = document.querySelector("#guestName");
-const linkMaker = document.querySelector("#linkMaker");
+
+function hasMultipleGuests(name) {
+  return /[,;&+]|\sи\s/i.test(name);
+}
+
+function inferGreeting(name) {
+  const normalizedName = name.trim().toLowerCase();
+  const masculineNamesEndingWithVowel = new Set([
+    "илья",
+    "никита",
+    "данила",
+    "саша",
+    "женя",
+    "миша",
+    "паша",
+    "леша",
+    "лёша",
+    "дима",
+    "коля",
+    "вася",
+    "петя",
+    "гриша",
+  ]);
+
+  if (hasMultipleGuests(normalizedName)) {
+    return "Дорогие";
+  }
+
+  if (masculineNamesEndingWithVowel.has(normalizedName)) {
+    return "Дорогой";
+  }
+
+  return /[ая]$/i.test(normalizedName) ? "Дорогая" : "Дорогой";
+}
+
+function getGreeting(name, value) {
+  const greetings = {
+    male: "Дорогой",
+    female: "Дорогая",
+    plural: "Дорогие",
+    "дорогой": "Дорогой",
+    "дорогая": "Дорогая",
+    "дорогие": "Дорогие",
+  };
+
+  return greetings[value.toLowerCase()] || inferGreeting(name);
+}
 
 if (invitedGuests) {
-  inviteTitle.textContent = `Дорогие ${invitedGuests}!`;
+  inviteTitle.textContent = `${getGreeting(invitedGuests, greetingParam)} ${invitedGuests}!`;
   guestNameInput.value = invitedGuests;
-} else {
-  linkMaker.hidden = false;
 }
 
 const music = document.querySelector("#weddingMusic");
@@ -97,19 +142,6 @@ window.addEventListener(
   { once: true }
 );
 
-const linkForm = document.querySelector("#linkForm");
-const guestLinkName = document.querySelector("#guestLinkName");
-const generatedLink = document.querySelector("#generatedLink");
-const copyLinkButton = document.querySelector("#copyLink");
-
-function buildGuestLink(name) {
-  const url = new URL(window.location.href);
-  url.hash = "invite";
-  url.search = "";
-  url.searchParams.set("guest", name);
-  return url.toString();
-}
-
 async function copyText(text) {
   if (!text) {
     return false;
@@ -132,28 +164,6 @@ async function copyText(text) {
   helper.remove();
   return copied;
 }
-
-linkForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const name = guestLinkName.value.trim();
-
-  if (!name) {
-    guestLinkName.focus();
-    return;
-  }
-
-  generatedLink.value = buildGuestLink(name);
-  generatedLink.select();
-});
-
-copyLinkButton.addEventListener("click", async () => {
-  if (!generatedLink.value && guestLinkName.value.trim()) {
-    generatedLink.value = buildGuestLink(guestLinkName.value.trim());
-  }
-
-  const copied = await copyText(generatedLink.value);
-  copyLinkButton.title = copied ? "Ссылка скопирована" : "Не удалось скопировать";
-});
 
 const rsvpForm = document.querySelector("#rsvpForm");
 const formStatus = document.querySelector("#formStatus");

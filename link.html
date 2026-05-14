@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Именная ссылка | Максим + Полина</title>
+    <meta name="robots" content="noindex">
+    <meta name="theme-color" content="#efe6d6">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&family=Pangolin&display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="invitation link-page">
+      <section class="section link-page-section" aria-labelledby="link-title">
+        <div class="section-inner form-layout">
+          <div class="form-copy">
+            <p class="eyebrow">Именная ссылка</p>
+            <h1 id="link-title">Создать ссылку</h1>
+            <p>
+              Выберите обращение, чтобы ссылка открывалась с правильным текстом:
+              «Дорогой Иван», «Дорогая Анна» или «Дорогие Иван и Анна».
+            </p>
+            <a class="text-link" href="index.html">Вернуться к приглашению</a>
+          </div>
+
+          <form class="link-form standalone-link-form" id="linkForm">
+            <div class="field">
+              <label for="guestLinkName">Имя или имена гостей</label>
+              <input
+                id="guestLinkName"
+                name="guestLinkName"
+                type="text"
+                placeholder="Например: Иван"
+                autocomplete="name"
+                required
+              >
+            </div>
+
+            <div class="field">
+              <label for="guestGreeting">Обращение</label>
+              <select id="guestGreeting" name="guestGreeting">
+                <option value="male">Дорогой</option>
+                <option value="female">Дорогая</option>
+                <option value="plural">Дорогие</option>
+              </select>
+            </div>
+
+            <button class="button" type="submit">Сделать ссылку</button>
+
+            <div class="result-panel link-result" id="linkResult" hidden>
+              <label for="generatedLink">Готовая ссылка</label>
+              <textarea id="generatedLink" rows="4" readonly></textarea>
+              <button class="button button--secondary" id="copyLink" type="button">Скопировать ссылку</button>
+              <p class="form-status" id="linkStatus" role="status" aria-live="polite"></p>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <script src="link.js"></script>
+  </body>
+</html>

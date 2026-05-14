@@ -51,6 +51,10 @@
               <figcaption>Максим</figcaption>
             </figure>
 
+            <div class="rings" aria-hidden="true">
+              <img src="assets/rings.png" alt="">
+            </div>
+
             <figure class="memory-card memory-card--polina">
               <span class="photo-pin" aria-hidden="true"></span>
               <img
@@ -62,11 +66,6 @@
               <figcaption>Полина</figcaption>
             </figure>
           </div>
-
-          <div class="rings" aria-hidden="true">
-            <img src="assets/rings.png" alt="">
-          </div>
-          <p class="hero-signature">Максим + Полина</p>
         </div>
       </section>
 
@@ -78,33 +77,6 @@
             Вы очень важные для нас люди! Поэтому приглашаем Вас разделить этот
             особенный день вместе с нами.
           </p>
-
-          <details class="link-maker" id="linkMaker" hidden>
-            <summary>Создать именную ссылку</summary>
-            <form id="linkForm" class="link-form">
-              <label for="guestLinkName">Имена гостей</label>
-              <div class="link-form-row">
-                <input
-                  id="guestLinkName"
-                  name="guestLinkName"
-                  type="text"
-                  placeholder="Например: Иван и Софья"
-                  autocomplete="name"
-                >
-                <button class="button button--secondary" type="submit">Сделать ссылку</button>
-              </div>
-              <label class="visually-hidden" for="generatedLink">Готовая ссылка</label>
-              <div class="link-form-row">
-                <input id="generatedLink" type="url" readonly placeholder="Ссылка появится здесь">
-                <button class="icon-button" id="copyLink" type="button" title="Скопировать ссылку" aria-label="Скопировать ссылку">
-                  <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <rect x="9" y="9" width="11" height="11" rx="2"></rect>
-                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                  </svg>
-                </button>
-              </div>
-            </form>
-          </details>
         </div>
       </section>
 
@@ -183,11 +155,10 @@
         </div>
       </section>
 
-      <section class="section program-section" aria-labelledby="program-title">
+      <section class="section program-section" aria-labelledby="program-label">
         <img class="decor decor--program-flower" src="assets/decor-flower-big.png" alt="" aria-hidden="true">
         <div class="section-inner green-panel">
-          <p class="eyebrow eyebrow--light">Программа мероприятия</p>
-          <h2 id="program-title">Как пройдет день</h2>
+          <p class="eyebrow eyebrow--light" id="program-label">Как пройдет день</p>
           <div class="timeline">
             <article class="timeline-item">
               <time datetime="2026-08-08T15:00">15:00</time>
@@ -209,11 +180,10 @@
         </div>
       </section>
 
-      <section class="section details-section" aria-labelledby="details-title">
+      <section class="section details-section" aria-labelledby="details-label">
         <img class="decor decor--details-arrow" src="assets/decor-arrow-loop.png" alt="" aria-hidden="true">
         <div class="section-inner paper-panel">
-          <p class="eyebrow">Детали</p>
-          <h2 id="details-title">Просим учесть</h2>
+          <p class="eyebrow" id="details-label">Детали</p>
           <ul class="details-list">
             <li>
               <p>

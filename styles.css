@@ -11,6 +11,7 @@
   --muted: #7a7169;
   --white: #fffdf7;
   --error: #b91c1c;
+  --paper-texture: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='180'%20height='180'%20viewBox='0%200%20180%20180'%3E%3Crect%20width='180'%20height='180'%20fill='%23fff8df'/%3E%3Cpath%20d='M18%2024%20L48%2022%20M82%2036%20L112%2038%20M132%2018%20L160%2016%20M20%2096%20L56%2098%20M96%20112%20L140%20108%20M54%20152%20L84%20150%20M122%20156%20L158%20158'%20fill='none'%20stroke='%23f7edc9'%20stroke-width='1'%20stroke-linecap='round'/%3E%3Cpath%20d='M28%2068%20L58%2070%20M104%2064%20L134%2062%20M14%20134%20L44%20132%20M136%2088%20L166%2090'%20fill='none'%20stroke='%23fff2cf'%20stroke-width='1'%20stroke-linecap='round'/%3E%3Ccircle%20cx='28'%20cy='52'%20r='1.2'%20fill='%23f7edc9'/%3E%3Ccircle%20cx='118'%20cy='38'%20r='1'%20fill='%23fff2cf'/%3E%3Ccircle%20cx='154'%20cy='118'%20r='1.1'%20fill='%23f6ebc5'/%3E%3Ccircle%20cx='66'%20cy='126'%20r='0.9'%20fill='%23fffdf0'/%3E%3C/svg%3E");
   --wave-pink: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20240%2032'%3E%3Cpath%20d='M0%2016%20C30%202%2060%2030%2090%2016%20S150%202%20180%2016%20S220%2030%20240%2016'%20fill='none'%20stroke='%23f19ac7'%20stroke-width='8'%20stroke-linecap='round'/%3E%3C/svg%3E");
   --wave-olive: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20240%2032'%3E%3Cpath%20d='M0%2016%20C30%2030%2060%202%2090%2016%20S150%2030%20180%2016%20S220%202%20240%2016'%20fill='none'%20stroke='%238aa24f'%20stroke-width='8'%20stroke-linecap='round'/%3E%3C/svg%3E");
 }
@@ -30,7 +31,10 @@ body {
   font-family: "Nunito", Arial, sans-serif;
   font-size: 1.05rem;
   line-height: 1.55;
-  background: var(--cream);
+  background-color: var(--cream);
+  background-image: var(--paper-texture);
+  background-repeat: repeat;
+  background-size: 11.25rem 11.25rem;
 }
 
 img,
@@ -44,6 +48,7 @@ img {
 
 button,
 input,
+select,
 textarea {
   font: inherit;
 }
@@ -128,7 +133,10 @@ a {
   min-height: 100vh;
   margin: 0;
   overflow: hidden;
-  background: var(--cream);
+  background-color: var(--cream);
+  background-image: var(--paper-texture);
+  background-repeat: repeat;
+  background-size: 11.25rem 11.25rem;
 }
 
 .section {
@@ -149,7 +157,6 @@ a {
   z-index: 0;
   width: 100%;
   height: clamp(1.45rem, 2.4vw, 2.2rem);
-  background-color: var(--cream);
   background-image: var(--wave-pink);
   background-repeat: repeat-x;
   background-position: center;
@@ -161,7 +168,6 @@ a {
 .section:nth-of-type(even)::before {
   left: 0;
   right: 0;
-  background-color: var(--cream);
   background-image: var(--wave-olive);
   transform: none;
 }
@@ -232,6 +238,9 @@ p {
   line-height: 1;
   text-transform: uppercase;
   background: var(--cream);
+  background-image: var(--paper-texture);
+  background-repeat: repeat;
+  background-size: 11.25rem 11.25rem;
   box-shadow: 0 0 0 0.13rem var(--cream), 0 0 0 0.27rem var(--olive);
   transform: rotate(-2deg);
 }
@@ -240,6 +249,7 @@ p {
   border-color: var(--olive);
   color: var(--pink);
   background: var(--cream);
+  background-image: var(--paper-texture);
 }
 
 .large-text {
@@ -298,8 +308,8 @@ p {
 .memory-spread {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(1.6rem, 7vw, 7rem);
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: clamp(0.65rem, 4vw, 4.5rem);
   align-items: end;
   width: min(100%, 980px);
   margin: 0 auto;
@@ -353,15 +363,16 @@ p {
 .rings {
   display: grid;
   place-items: center;
-  margin: clamp(1.8rem, 4vw, 3.2rem) auto 0.55rem;
+  align-self: center;
+  margin: 0;
+  transform: translateY(clamp(0.5rem, 4vw, 2rem));
 }
 
 .rings img {
-  width: clamp(8.5rem, 18vw, 15rem);
+  width: clamp(4.4rem, 11vw, 10rem);
   height: auto;
 }
 
-.hero-signature,
 .closing {
   color: var(--pink);
   font-family: "Comfortaa", "Nunito", Arial, sans-serif;
@@ -408,7 +419,10 @@ p {
   text-align: left;
   border-top: 2px solid var(--pink);
   border-bottom: 2px solid var(--pink);
-  background: var(--cream);
+  background-color: var(--cream);
+  background-image: var(--paper-texture);
+  background-repeat: repeat;
+  background-size: 11.25rem 11.25rem;
 }
 
 .link-maker summary {
@@ -447,7 +461,8 @@ p {
 }
 
 input,
-textarea {
+textarea,
+select {
   width: 100%;
   border: 0;
   border-bottom: 2px solid var(--pink);
@@ -457,7 +472,8 @@ textarea {
   transition: border-color 180ms ease, background 180ms ease;
 }
 
-input {
+input,
+select {
   min-height: 3.1rem;
   padding: 0.55rem 0.65rem;
 }
@@ -469,7 +485,8 @@ textarea {
 }
 
 input:focus,
-textarea:focus {
+textarea:focus,
+select:focus {
   border-color: var(--olive-deep);
   outline: 3px solid var(--pink-soft);
 }
@@ -518,7 +535,10 @@ textarea:focus {
 
 .button--secondary {
   color: var(--pink);
-  background: var(--cream);
+  background-color: var(--cream);
+  background-image: var(--paper-texture);
+  background-repeat: repeat;
+  background-size: 11.25rem 11.25rem;
 }
 
 .button--secondary:hover,
@@ -642,7 +662,10 @@ textarea:focus {
   position: relative;
   padding: 0;
   color: var(--ink);
-  background: var(--cream);
+  background-color: var(--cream);
+  background-image: var(--paper-texture);
+  background-repeat: repeat;
+  background-size: 11.25rem 11.25rem;
 }
 
 .green-panel h2,
@@ -653,7 +676,7 @@ textarea:focus {
 .timeline {
   display: grid;
   gap: 1.1rem;
-  margin-top: 1.5rem;
+  margin-top: 0.8rem;
 }
 
 .timeline-item {
@@ -699,18 +722,19 @@ textarea:focus {
 
 .details-list li {
   position: relative;
-  padding-left: 1.65rem;
+  padding-left: 1.85rem;
 }
 
 .details-list li::before {
   position: absolute;
-  top: 0.07rem;
+  top: 0.02rem;
   left: 0;
   color: var(--pink);
   font-family: "Comfortaa", "Nunito", Arial, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.35rem;
+  font-weight: 800;
   line-height: 1;
-  content: "♡";
+  content: "→";
 }
 
 .details-list p {
@@ -753,7 +777,10 @@ textarea:focus {
   display: grid;
   gap: 1.15rem;
   padding: 0;
-  background: var(--cream);
+  background-color: var(--cream);
+  background-image: var(--paper-texture);
+  background-repeat: repeat;
+  background-size: 11.25rem 11.25rem;
 }
 
 .field {
@@ -775,7 +802,10 @@ textarea:focus {
   min-height: 2.2rem;
   padding: 0;
   color: var(--ink);
-  background: var(--cream);
+  background-color: var(--cream);
+  background-image: var(--paper-texture);
+  background-repeat: repeat;
+  background-size: 11.25rem 11.25rem;
   cursor: pointer;
 }
 
@@ -826,6 +856,33 @@ textarea:focus {
   display: flex;
   flex-wrap: wrap;
   gap: 0.65rem;
+}
+
+.link-page-section {
+  min-height: 100vh;
+  display: grid;
+  align-items: center;
+}
+
+.link-page .form-copy h1 {
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+}
+
+.text-link {
+  display: inline-block;
+  margin-top: 1.2rem;
+  color: var(--pink);
+  font-weight: 800;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.22rem;
+}
+
+.standalone-link-form {
+  align-self: start;
+}
+
+.link-result textarea {
+  min-height: 6.4rem;
 }
 
 .countdown-section {
@@ -973,7 +1030,8 @@ textarea:focus {
   }
 
   .memory-spread {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    gap: 0.35rem;
   }
 
   .memory-card {
@@ -982,6 +1040,14 @@ textarea:focus {
 
   .memory-card img {
     height: clamp(17rem, 68vw, 24rem);
+  }
+
+  .rings {
+    transform: translateY(0.9rem);
+  }
+
+  .rings img {
+    width: clamp(3.25rem, 16vw, 4.75rem);
   }
 
   .memory-card figcaption {
