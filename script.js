@@ -15,11 +15,38 @@ const MUSIC_START = 20;
 const MUSIC_END = 49;
 
 const params = new URLSearchParams(window.location.search);
-const invitedGuests = (params.get("guest") || params.get("guests") || params.get("to") || "").trim();
-const greetingParam = (params.get("greeting") || "").trim();
+const invitePayload = decodeInvitePayload(params.get("i") || params.get("invite") || "");
+const invitedGuests = (
+  invitePayload?.guest ||
+  params.get("guest") ||
+  params.get("guests") ||
+  params.get("to") ||
+  ""
+).trim();
+const greetingParam = (invitePayload?.greeting || params.get("greeting") || "").trim();
 
 const inviteTitle = document.querySelector("#invite-title");
 const guestNameInput = document.querySelector("#guestName");
+
+function decodeBase64Url(value) {
+  const paddedValue = value.replace(/-/g, "+").replace(/_/g, "/").padEnd(Math.ceil(value.length / 4) * 4, "=");
+  const binary = window.atob(paddedValue);
+  const bytes = Uint8Array.from(binary, (character) => character.charCodeAt(0));
+  return new TextDecoder().decode(bytes);
+}
+
+function decodeInvitePayload(value) {
+  if (!value) {
+    return null;
+  }
+
+  try {
+    const payload = JSON.parse(decodeBase64Url(value));
+    return payload && typeof payload === "object" ? payload : null;
+  } catch {
+    return null;
+  }
+}
 
 function hasMultipleGuests(name) {
   return /[,;&+]|\sи\s/i.test(name);

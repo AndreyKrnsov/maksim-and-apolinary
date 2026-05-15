@@ -11,7 +11,7 @@
   --muted: #7a7169;
   --white: #fffdf7;
   --error: #b91c1c;
-  --paper-texture: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='180'%20height='180'%20viewBox='0%200%20180%20180'%3E%3Crect%20width='180'%20height='180'%20fill='%23fff8df'/%3E%3Cpath%20d='M18%2024%20L48%2022%20M82%2036%20L112%2038%20M132%2018%20L160%2016%20M20%2096%20L56%2098%20M96%20112%20L140%20108%20M54%20152%20L84%20150%20M122%20156%20L158%20158'%20fill='none'%20stroke='%23f7edc9'%20stroke-width='1'%20stroke-linecap='round'/%3E%3Cpath%20d='M28%2068%20L58%2070%20M104%2064%20L134%2062%20M14%20134%20L44%20132%20M136%2088%20L166%2090'%20fill='none'%20stroke='%23fff2cf'%20stroke-width='1'%20stroke-linecap='round'/%3E%3Ccircle%20cx='28'%20cy='52'%20r='1.2'%20fill='%23f7edc9'/%3E%3Ccircle%20cx='118'%20cy='38'%20r='1'%20fill='%23fff2cf'/%3E%3Ccircle%20cx='154'%20cy='118'%20r='1.1'%20fill='%23f6ebc5'/%3E%3Ccircle%20cx='66'%20cy='126'%20r='0.9'%20fill='%23fffdf0'/%3E%3C/svg%3E");
+  --paper-texture: none;
   --wave-pink: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20240%2032'%3E%3Cpath%20d='M0%2016%20C30%202%2060%2030%2090%2016%20S150%202%20180%2016%20S220%2030%20240%2016'%20fill='none'%20stroke='%23f19ac7'%20stroke-width='8'%20stroke-linecap='round'/%3E%3C/svg%3E");
   --wave-olive: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20240%2032'%3E%3Cpath%20d='M0%2016%20C30%2030%2060%202%2090%2016%20S150%2030%20180%2016%20S220%202%20240%2016'%20fill='none'%20stroke='%238aa24f'%20stroke-width='8'%20stroke-linecap='round'/%3E%3C/svg%3E");
 }
@@ -308,10 +308,10 @@ p {
 .memory-spread {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-  gap: clamp(0.65rem, 4vw, 4.5rem);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(0.25rem, 1.8vw, 1.35rem);
   align-items: end;
-  width: min(100%, 980px);
+  width: min(100%, 820px);
   margin: 0 auto;
 }
 
@@ -321,7 +321,7 @@ p {
   place-items: end center;
   min-width: 0;
   margin: 0;
-  padding: 0 0 2rem;
+  padding: 0;
 }
 
 .memory-card--maksim {
@@ -342,18 +342,12 @@ p {
   filter: drop-shadow(0 9px 0 var(--white)) drop-shadow(5px 15px 0 var(--pink-soft));
 }
 
-.memory-card figcaption {
-  position: absolute;
-  right: 0.8rem;
-  bottom: 0;
-  left: 0.8rem;
-  z-index: 1;
-  color: var(--pink);
-  font-family: "Pangolin", "Nunito", Arial, sans-serif;
-  font-size: clamp(1.05rem, 4.2vw, 1.55rem);
-  font-weight: 800;
-  line-height: 1;
-  text-shadow: 0 2px 0 var(--cream);
+.memory-card--maksim img {
+  object-position: right bottom;
+}
+
+.memory-card--polina img {
+  object-position: left bottom;
 }
 
 .photo-pin {
@@ -363,13 +357,16 @@ p {
 .rings {
   display: grid;
   place-items: center;
-  align-self: center;
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  z-index: 3;
   margin: 0;
-  transform: translateY(clamp(0.5rem, 4vw, 2rem));
+  transform: translate(-50%, -50%);
 }
 
 .rings img {
-  width: clamp(4.4rem, 11vw, 10rem);
+  width: clamp(5rem, 12vw, 9.5rem);
   height: auto;
 }
 
@@ -698,8 +695,9 @@ select:focus {
   position: relative;
   margin: 0;
   padding-left: 1.25rem;
+  font-size: clamp(1.25rem, 2.45vw, 1.75rem);
   font-weight: 800;
-  line-height: 1.35;
+  line-height: 1.24;
 }
 
 .timeline-item p::before {
@@ -739,7 +737,9 @@ select:focus {
 
 .details-list p {
   color: var(--ink);
+  font-size: clamp(1.18rem, 2.2vw, 1.55rem);
   font-weight: 800;
+  line-height: 1.32;
 }
 
 .dress-panel {
@@ -1030,12 +1030,12 @@ select:focus {
   }
 
   .memory-spread {
-    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-    gap: 0.35rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.15rem;
   }
 
   .memory-card {
-    padding: 0 0 1.9rem;
+    padding: 0;
   }
 
   .memory-card img {
@@ -1043,15 +1043,12 @@ select:focus {
   }
 
   .rings {
-    transform: translateY(0.9rem);
+    top: 53%;
+    transform: translate(-50%, -50%);
   }
 
   .rings img {
-    width: clamp(3.25rem, 16vw, 4.75rem);
-  }
-
-  .memory-card figcaption {
-    font-size: 0.98rem;
+    width: clamp(3.1rem, 15vw, 4.5rem);
   }
 
   .link-form-row {

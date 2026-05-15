@@ -40,11 +40,20 @@ function inferGreeting(name) {
   return /[ая]$/i.test(normalizedName) ? "female" : "male";
 }
 
+function encodeBase64Url(value) {
+  const bytes = new TextEncoder().encode(value);
+  const binary = Array.from(bytes, (byte) => String.fromCharCode(byte)).join("");
+  return window.btoa(binary).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/g, "");
+}
+
+function encodeInvitePayload(payload) {
+  return encodeBase64Url(JSON.stringify(payload));
+}
+
 function buildGuestLink(name, greeting) {
   const url = new URL("index.html", window.location.href);
   url.hash = "invite";
-  url.searchParams.set("guest", name);
-  url.searchParams.set("greeting", greeting);
+  url.searchParams.set("i", encodeInvitePayload({ guest: name, greeting }));
   return url.toString();
 }
 
