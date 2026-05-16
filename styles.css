@@ -435,14 +435,14 @@ p {
   --hero-decor-size: clamp(1.6rem, 2.8vw, 2.35rem);
   top: 0.08rem;
   left: clamp(1.2rem, 6.5vw, 3.6rem);
-  transform: rotate(196deg);
+  transform: scaleX(-1) rotate(196deg);
 }
 
 .hero-rays--copy-right {
   --hero-decor-size: clamp(1.6rem, 2.8vw, 2.35rem);
   top: 0.08rem;
   right: clamp(1.2rem, 6.5vw, 3.6rem);
-  transform: scaleX(-1) rotate(196deg);
+  transform: rotate(196deg);
 }
 
 .memory-spread {
@@ -559,14 +559,14 @@ p {
   --hero-decor-size: clamp(1.85rem, 3vw, 2.55rem);
   top: 24%;
   left: 8.5%;
-  transform: rotate(195deg);
+  transform: scaleX(-1) rotate(195deg);
 }
 
 .hero-rays--polina {
   --hero-decor-size: clamp(1.85rem, 3vw, 2.55rem);
   top: 25%;
   right: 8.5%;
-  transform: scaleX(-1) rotate(195deg);
+  transform: rotate(195deg);
 }
 
 .hero-heart--maksim {
@@ -1302,12 +1302,12 @@ select:focus {
 
   .hero-rays--copy-left {
     left: clamp(-1.7rem, -4vw, -0.85rem);
-    transform: rotate(196deg);
+    transform: scaleX(-1) rotate(196deg);
   }
 
   .hero-rays--copy-right {
     right: clamp(-1.7rem, -4vw, -0.85rem);
-    transform: scaleX(-1) rotate(196deg);
+    transform: rotate(196deg);
   }
 
   .decor--hero-flower {
