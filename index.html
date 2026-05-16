@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&family=Pangolin&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Marck+Script&family=Nunito:wght@400;500;600;700;800&family=Pangolin&display=swap"
       rel="stylesheet"
     >
     <link rel="stylesheet" href="styles.css">
@@ -32,14 +32,26 @@
 
     <main class="invitation">
       <section class="section hero" id="top" aria-labelledby="hero-title">
-        <img class="decor decor--hero-flower" src="assets/decor-flower-outline.png" alt="" aria-hidden="true">
-        <img class="decor decor--hero-arrow" src="assets/decor-arrow-loop.png" alt="" aria-hidden="true">
+        <img class="hero-garland" src="assets/hero-garland.png" alt="" aria-hidden="true">
+        <img class="hero-bottom-wave" src="assets/hero-bottom-wave.png" alt="" aria-hidden="true">
         <div class="section-inner hero-inner">
           <p class="soft-note">Узнали?</p>
-          <h1 id="hero-title">Максим + Полина</h1>
-          <p class="hero-kicker">Эти ангелочки и не догадывались, что однажды обменяются кольцами</p>
+          <h1 id="hero-title">
+            <span class="hero-title-line">Максим +</span>
+            <span class="hero-title-line">Полина<span class="title-heart" aria-hidden="true">♡</span></span>
+          </h1>
+          <img class="hero-flourish" src="assets/hero-flourish.png" alt="" aria-hidden="true">
+          <div class="hero-copy">
+            <img class="hero-rays hero-rays--copy-left" src="assets/hero-rays.png" alt="" aria-hidden="true">
+            <p class="hero-kicker">Эти ангелочки и не догадывались,<br> что однажды обменяются<span class="mobile-break"><br></span> кольцами</p>
+            <img class="hero-rays hero-rays--copy-right" src="assets/hero-rays.png" alt="" aria-hidden="true">
+          </div>
 
           <div class="memory-spread" role="group" aria-label="Детские фотографии Максима и Полины">
+            <img class="hero-rays hero-rays--maksim" src="assets/hero-rays.png" alt="" aria-hidden="true">
+            <img class="hero-rays hero-rays--polina" src="assets/hero-rays.png" alt="" aria-hidden="true">
+            <img class="hero-heart hero-heart--maksim" src="assets/hero-heart.png" alt="" aria-hidden="true">
+            <img class="hero-heart hero-heart--polina" src="assets/hero-heart.png" alt="" aria-hidden="true">
             <figure class="memory-card memory-card--maksim">
               <span class="photo-pin" aria-hidden="true"></span>
               <img
@@ -48,10 +60,15 @@
                 width="546"
                 height="1400"
               >
+              <figcaption class="memory-name">
+                <img src="assets/hero-leaves-left.png" alt="" aria-hidden="true">
+                <span>Максим</span>
+                <img src="assets/hero-leaves-right.png" alt="" aria-hidden="true">
+              </figcaption>
             </figure>
 
             <div class="rings" aria-hidden="true">
-              <img src="assets/rings.png" alt="">
+              <img src="assets/hero-rings.png" alt="">
             </div>
 
             <figure class="memory-card memory-card--polina">
@@ -62,6 +79,11 @@
                 width="575"
                 height="1336"
               >
+              <figcaption class="memory-name">
+                <img src="assets/hero-leaves-left.png" alt="" aria-hidden="true">
+                <span>Полина</span>
+                <img src="assets/hero-leaves-right.png" alt="" aria-hidden="true">
+              </figcaption>
             </figure>
           </div>
         </div>
