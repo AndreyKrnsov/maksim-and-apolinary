@@ -14,6 +14,16 @@ const WEDDING_DATE = new Date("2026-08-08T15:00:00+04:00");
 const MUSIC_START = 20;
 const MUSIC_END = 49;
 
+function setStableViewportHeight() {
+  document.documentElement.style.setProperty("--stable-vh", `${window.innerHeight}px`);
+}
+
+setStableViewportHeight();
+window.addEventListener("pageshow", setStableViewportHeight);
+window.addEventListener("orientationchange", () => {
+  window.setTimeout(setStableViewportHeight, 250);
+});
+
 const params = new URLSearchParams(window.location.search);
 const invitePayload = decodeInvitePayload(params.get("i") || params.get("invite") || "");
 const invitedGuests = (
