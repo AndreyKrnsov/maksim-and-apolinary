@@ -1151,6 +1151,8 @@ select:focus {
 
 .screen3-wave--bottom {
   bottom: clamp(1.2rem, 2.3vw, 2.2rem);
+  height: clamp(3rem, 4.1vw, 3.9rem);
+  object-fit: fill;
 }
 
 .program-section .eyebrow {
@@ -1192,12 +1194,12 @@ select:focus {
 
 .program-section .eyebrow::before {
   right: calc(100% + clamp(0.6rem, 1.5vw, 1.1rem));
-  transform: translateY(-50%) scaleX(-1) rotate(4deg);
+  transform: translateY(-50%) rotate(-4deg);
 }
 
 .program-section .eyebrow::after {
   left: calc(100% + clamp(0.6rem, 1.5vw, 1.1rem));
-  transform: translateY(-50%) rotate(4deg);
+  transform: translateY(-50%) scaleX(-1) rotate(-4deg);
 }
 
 .timeline {
@@ -1269,8 +1271,12 @@ select:focus {
 
 .timeline-item:last-child p {
   max-width: 42rem;
-  font-size: clamp(1.28rem, 1.8vw, 1.62rem);
+  font-size: clamp(1.55rem, 2.1vw, 1.9rem);
   line-height: 1.35;
+}
+
+.section.details-section::before {
+  display: none;
 }
 
 .green-panel,
@@ -1796,6 +1802,7 @@ select:focus {
 
   .screen3-wave--bottom {
     bottom: 1.15rem;
+    height: clamp(2.05rem, 7.8vw, 2.75rem);
   }
 
   .program-section .eyebrow {
