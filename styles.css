@@ -140,12 +140,19 @@ a {
   overflow: hidden;
   background-color: var(--cream);
   background-image: var(--paper-texture);
-  background-position:
-    0 calc(-1 * 100svh),
-    0 calc(-1 * 100svh),
-    0 0;
   background-repeat: repeat;
   background-size: 13rem 13rem, 17rem 17rem, auto;
+}
+
+.invitation::before {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 50% 52svh, rgb(255 255 255 / 0.38), transparent 39rem),
+    linear-gradient(90deg, rgb(226 205 169 / 0.12), transparent 18%, transparent 82%, rgb(226 205 169 / 0.12));
+  content: "";
+  pointer-events: none;
 }
 
 .section {
@@ -273,22 +280,12 @@ p {
   padding: 0;
   overflow: hidden;
   text-align: center;
-  background-color: var(--cream);
-  background-image: var(--paper-texture);
-  background-repeat: repeat;
-  background-size: 13rem 13rem, 17rem 17rem, auto;
+  background: transparent;
   isolation: isolate;
 }
 
 .hero::after {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background:
-    radial-gradient(circle at 50% 52%, rgb(255 255 255 / 0.38), transparent 39rem),
-    linear-gradient(90deg, rgb(226 205 169 / 0.12), transparent 18%, transparent 82%, rgb(226 205 169 / 0.12));
-  content: "";
-  pointer-events: none;
+  display: none;
 }
 
 .hero-inner {
@@ -596,10 +593,7 @@ p {
   min-height: 100svh;
   padding: clamp(5.1rem, 7vw, 7.2rem) 0 clamp(4.4rem, 7vw, 6.2rem);
   overflow: hidden;
-  background-color: var(--cream);
-  background-image: var(--paper-texture);
-  background-repeat: repeat;
-  background-size: 13rem 13rem, 17rem 17rem, auto;
+  background: transparent;
 }
 
 .section.invite-section::before {
@@ -607,14 +601,7 @@ p {
 }
 
 .invite-section::after {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background:
-    radial-gradient(circle at 50% 52%, rgb(255 255 255 / 0.38), transparent 39rem),
-    linear-gradient(90deg, rgb(226 205 169 / 0.12), transparent 18%, transparent 82%, rgb(226 205 169 / 0.12));
-  content: "";
-  pointer-events: none;
+  display: none;
 }
 
 .invite-inner {
@@ -1026,9 +1013,7 @@ select:focus {
   }
 
   .screen2-decor--branch {
-    right: -1.2rem;
-    bottom: 0.9rem;
-    width: clamp(4.1rem, 16vw, 5.2rem);
+    display: none;
   }
 
   .invite-section #invite-title {
