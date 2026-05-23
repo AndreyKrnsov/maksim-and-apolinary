@@ -587,14 +587,48 @@ p {
 }
 
 .invite-section {
-  padding-top: clamp(2.25rem, 6vw, 4rem);
+  display: grid;
+  align-items: center;
+  min-height: 100svh;
+  padding: clamp(5.1rem, 7vw, 7.2rem) 0 clamp(4.4rem, 7vw, 6.2rem);
+  overflow: hidden;
+  background-color: var(--cream);
+  background-image: var(--paper-texture);
+  background-repeat: repeat;
+  background-size: 13rem 13rem, 17rem 17rem, auto;
 }
 
-.decor--invite-flower {
-  --decor-size: clamp(4.8rem, 9vw, 7rem);
-  right: clamp(1rem, 8vw, 8rem);
-  top: clamp(2rem, 5vw, 4rem);
-  transform: rotate(12deg);
+.section.invite-section::before {
+  display: none;
+}
+
+.invite-inner {
+  display: grid;
+  align-content: center;
+  width: min(100% - clamp(2rem, 8vw, 8rem), 1280px);
+}
+
+.invite-hero-copy {
+  text-align: center;
+}
+
+.screen2-decor {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.screen2-decor--flower {
+  top: clamp(4.6rem, 6.6vw, 6.2rem);
+  right: clamp(1.2rem, 4vw, 3.6rem);
+  width: clamp(5.2rem, 8.2vw, 6.8rem);
+}
+
+.screen2-decor--branch {
+  right: clamp(1.8rem, 6vw, 5rem);
+  bottom: clamp(3.2rem, 5vw, 4.8rem);
+  width: clamp(5.9rem, 11vw, 9.2rem);
 }
 
 .decor--when-arrow {
@@ -613,10 +647,150 @@ p {
   display: none;
 }
 
-.invite-section h2 {
+.invite-section #invite-title {
   position: relative;
+  display: block;
+  margin: 0 auto clamp(1rem, 1.7vw, 1.5rem);
+  color: var(--pink);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(3.8rem, 7vw, 6.9rem);
+  font-weight: 500;
+  line-height: 0.96;
+  letter-spacing: 0;
+}
+
+.invite-section #invite-title::after {
   display: inline-block;
-  font-size: clamp(1.95rem, 6.8vw, 3.3rem);
+  margin-left: 0.12em;
+  color: var(--pink-soft);
+  font-size: 0.48em;
+  font-weight: 400;
+  line-height: 1;
+  vertical-align: 0.02em;
+  content: "♡";
+}
+
+.invite-section .large-text {
+  width: min(100%, 50rem);
+  margin: 0 auto;
+  color: var(--ink);
+  font-size: clamp(1.12rem, 1.75vw, 1.52rem);
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.invite-divider {
+  width: min(100%, 75rem);
+  margin: clamp(2.6rem, 5vw, 4.4rem) auto clamp(3rem, 5vw, 4.6rem);
+}
+
+.invite-details-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(3.5rem, 10vw, 8rem);
+  align-items: start;
+}
+
+.invite-date-panel,
+.invite-place-panel {
+  position: relative;
+  padding: 0;
+  color: var(--ink);
+  background: none;
+}
+
+.invite-date-panel {
+  padding-left: clamp(0.5rem, 2.5vw, 2.3rem);
+}
+
+.invite-place-panel {
+  padding-top: clamp(0.5rem, 1.4vw, 1.4rem);
+  text-align: center;
+}
+
+.invite-section .eyebrow {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: clamp(8.5rem, 14vw, 10.8rem);
+  margin: 0 0 clamp(1.6rem, 2.8vw, 2.3rem);
+  padding: 0.26rem 1.4rem 0.34rem;
+  border: 1.25px solid var(--olive);
+  border-radius: 999px;
+  color: var(--olive);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.24rem, 2vw, 1.55rem);
+  font-weight: 500;
+  line-height: 1;
+  text-transform: uppercase;
+  background: transparent;
+  box-shadow: none;
+  outline: 1.25px dashed var(--olive);
+  outline-offset: 0.24rem;
+  transform: none;
+}
+
+.invite-section .eyebrow::before,
+.invite-section .eyebrow::after {
+  position: absolute;
+  top: 50%;
+  width: 1.55rem;
+  height: 1.9rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  content: "";
+  transform: translateY(-50%);
+}
+
+.invite-section .eyebrow::before {
+  right: calc(100% + 0.65rem);
+  background-image: url("assets/hero-leaves-left.png");
+}
+
+.invite-section .eyebrow::after {
+  left: calc(100% + 0.65rem);
+  background-image: url("assets/hero-leaves-right.png");
+}
+
+.invite-date-panel h2,
+.invite-place-panel h2 {
+  color: var(--pink);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(3.5rem, 5.2vw, 5.25rem);
+  font-weight: 500;
+  line-height: 0.92;
+  letter-spacing: 0;
+}
+
+.invite-date-panel h2 {
+  margin-bottom: clamp(1.15rem, 2vw, 1.7rem);
+}
+
+.invite-place-panel h2 {
+  margin-bottom: clamp(1.05rem, 2vw, 1.55rem);
+}
+
+.invite-place-panel p:not(.eyebrow) {
+  width: min(100%, 34rem);
+  margin: 0 auto clamp(1.6rem, 2.5vw, 2.2rem);
+  color: var(--ink);
+  font-size: clamp(1.12rem, 1.75vw, 1.44rem);
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.invite-section .pretty-link {
+  min-width: min(100%, 22.5rem);
+  min-height: clamp(3.1rem, 4vw, 3.55rem);
+  padding: 0.72rem 2.2rem;
+  border: 0;
+  color: var(--white);
+  font-size: clamp(0.98rem, 1.2vw, 1.12rem);
+  letter-spacing: 0;
+  background: linear-gradient(180deg, #7e9167 0%, #627653 100%);
+  box-shadow: 0 0.05rem 0.45rem rgb(97 113 80 / 0.2);
 }
 
 .link-maker {
@@ -777,56 +951,25 @@ select:focus {
   background: var(--olive);
 }
 
-.when-section {
-  padding-top: clamp(2.5rem, 6vw, 4.5rem);
-}
-
-.blob-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: clamp(2.25rem, 7vw, 4.25rem);
-}
-
-.blob-card {
-  position: relative;
-  min-height: 0;
-  padding: 0;
-  color: var(--ink);
-}
-
-.blob-card .eyebrow {
-  margin-bottom: 1rem;
-}
-
-.blob-card h2 {
-  color: var(--pink);
-}
-
-.blob-card--place p:not(.eyebrow) {
-  width: min(100%, 24rem);
-  margin-bottom: 1.1rem;
-  font-size: 1.18rem;
-  font-weight: 800;
-}
-
 .calendar {
-  width: min(100%, 25rem);
-  margin-top: 1.2rem;
+  width: min(100%, 30rem);
+  margin-top: 0;
 }
 
 .calendar-header,
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, minmax(0, 1fr));
-  gap: 0.25rem;
+  gap: 0.28rem 0.46rem;
   text-align: center;
 }
 
 .calendar-header {
-  margin-bottom: 0.4rem;
-  color: var(--pink);
-  font-family: "Comfortaa", "Nunito", Arial, sans-serif;
-  font-weight: 800;
+  margin-bottom: 0.52rem;
+  color: var(--olive);
+  font-family: "Nunito", Arial, sans-serif;
+  font-size: clamp(1rem, 1.4vw, 1.22rem);
+  font-weight: 500;
 }
 
 .calendar-grid > span,
@@ -835,10 +978,10 @@ select:focus {
   display: grid;
   aspect-ratio: 1;
   place-items: center;
-  color: var(--pink);
-  font-family: "Comfortaa", "Nunito", Arial, sans-serif;
-  font-size: 1.02rem;
-  font-weight: 700;
+  color: var(--ink);
+  font-family: "Nunito", Arial, sans-serif;
+  font-size: clamp(1rem, 1.35vw, 1.18rem);
+  font-weight: 400;
 }
 
 .calendar-grid > span:empty {
@@ -846,19 +989,131 @@ select:focus {
 }
 
 .calendar-grid .wedding-day {
-  color: var(--pink);
+  color: var(--ink);
 }
 
 .calendar-grid .wedding-day::before {
   position: absolute;
   inset: 50% auto auto 50%;
   z-index: -1;
-  color: var(--olive-deep);
-  font-family: "Nunito", Arial, sans-serif;
-  font-size: 2.7rem;
+  width: 2.85em;
+  height: 2.65em;
+  background-image: url("assets/screen2-heart.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
   line-height: 1;
-  transform: translate(-50%, -47%);
-  content: "♡";
+  content: "";
+  transform: translate(-50%, -49%);
+}
+
+@media (max-width: 760px) {
+  .invite-section {
+    min-height: auto;
+    padding: clamp(4.4rem, 12vw, 5.8rem) 0 clamp(4.2rem, 11vw, 5.4rem);
+  }
+
+  .invite-inner {
+    width: min(100% - 1.35rem, 660px);
+  }
+
+  .screen2-decor--flower {
+    top: 5.2rem;
+    right: -1.25rem;
+    width: clamp(3.8rem, 13vw, 4.4rem);
+  }
+
+  .screen2-decor--branch {
+    right: 0.8rem;
+    bottom: 1.6rem;
+    width: clamp(4.6rem, 19vw, 6rem);
+  }
+
+  .invite-section #invite-title {
+    width: min(100%, 26rem);
+    margin-bottom: 0.9rem;
+    font-size: clamp(3.1rem, 12.5vw, 4.5rem);
+    line-height: 0.98;
+  }
+
+  .invite-section .large-text {
+    width: min(100%, 24rem);
+    font-size: clamp(1.02rem, 4.2vw, 1.2rem);
+    line-height: 1.45;
+  }
+
+  .invite-divider {
+    width: min(100%, 36rem);
+    margin: clamp(2.1rem, 8vw, 3rem) auto clamp(2.8rem, 9vw, 3.6rem);
+  }
+
+  .invite-details-grid {
+    grid-template-columns: 1fr;
+    gap: clamp(3.2rem, 12vw, 4.4rem);
+    justify-items: center;
+    text-align: center;
+  }
+
+  .invite-date-panel,
+  .invite-place-panel {
+    width: min(100%, 25rem);
+    padding: 0;
+  }
+
+  .invite-section .eyebrow {
+    min-width: 7.8rem;
+    margin-bottom: 1.35rem;
+    padding: 0.24rem 1.25rem 0.32rem;
+    font-size: 1.18rem;
+    outline-offset: 0.21rem;
+  }
+
+  .invite-section .eyebrow::before,
+  .invite-section .eyebrow::after {
+    width: 1.22rem;
+    height: 1.48rem;
+  }
+
+  .invite-section .eyebrow::before {
+    right: calc(100% + 0.45rem);
+  }
+
+  .invite-section .eyebrow::after {
+    left: calc(100% + 0.45rem);
+  }
+
+  .invite-date-panel h2,
+  .invite-place-panel h2 {
+    font-size: clamp(3.05rem, 13.2vw, 4rem);
+  }
+
+  .calendar {
+    width: min(100%, 22rem);
+    margin-inline: auto;
+  }
+
+  .calendar-header,
+  .calendar-grid {
+    gap: 0.2rem 0.32rem;
+  }
+
+  .calendar-header {
+    font-size: 0.94rem;
+  }
+
+  .calendar-grid > span,
+  .calendar-grid > time {
+    font-size: 0.96rem;
+  }
+
+  .invite-place-panel p:not(.eyebrow) {
+    width: min(100%, 22rem);
+    font-size: 1.05rem;
+  }
+
+  .invite-section .pretty-link {
+    width: min(100%, 20rem);
+  }
 }
 
 .green-panel,
