@@ -819,9 +819,11 @@ p {
 .field legend,
 .result-panel label {
   display: block;
-  margin-bottom: 0.45rem;
+  margin-bottom: 0.58rem;
   color: var(--ink);
-  font-weight: 800;
+  font-size: clamp(1.1rem, 1.55vw, 1.34rem);
+  font-weight: 400;
+  line-height: 1.35;
 }
 
 .link-form-row {
@@ -836,10 +838,12 @@ textarea,
 select {
   width: 100%;
   border: 0;
-  border-bottom: 2px solid var(--pink);
+  border-bottom: 1.2px solid rgb(244 170 163 / 0.92);
   border-radius: 0;
   color: var(--ink);
-  background: var(--white);
+  background: transparent;
+  font-size: clamp(1rem, 1.3vw, 1.18rem);
+  font-weight: 300;
   transition: border-color 180ms ease, background 180ms ease;
 }
 
@@ -880,7 +884,8 @@ select:focus {
   min-height: 3rem;
   padding: 0.7rem 1.35rem;
   color: var(--white);
-  font-weight: 800;
+  font-weight: 700;
+  letter-spacing: 0;
   text-decoration: none;
   text-transform: uppercase;
   background: var(--olive);
@@ -1277,16 +1282,31 @@ select:focus {
   display: none;
 }
 
+.section.dress-section::before,
+.section.form-section::before,
+.section.countdown-section::before {
+  display: none;
+}
+
+.details-section,
+.dress-section,
+.form-section,
+.countdown-section {
+  display: grid;
+  align-items: center;
+  min-height: 100svh;
+  padding: clamp(5.8rem, 8vw, 7.4rem) 0;
+  overflow: hidden;
+  background: transparent;
+}
+
 .green-panel,
 .dress-panel,
 .paper-panel {
   position: relative;
   padding: 0;
   color: var(--ink);
-  background-color: var(--cream);
-  background-image: var(--paper-texture);
-  background-repeat: repeat;
-  background-size: 11.25rem 11.25rem;
+  background: transparent;
 }
 
 .green-panel h2,
@@ -1294,36 +1314,124 @@ select:focus {
   color: var(--pink);
 }
 
+.details-section .paper-panel,
+.dress-section .dress-panel,
+.countdown-section .narrow {
+  display: grid;
+  justify-items: center;
+  width: min(100% - clamp(2rem, 8vw, 8rem), 92rem);
+}
+
+.details-section .eyebrow,
+.dress-section .eyebrow,
+.form-section .eyebrow,
+.countdown-section .eyebrow {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: clamp(20rem, 31vw, 27rem);
+  margin: 0;
+  padding: 0.34rem clamp(2.25rem, 4vw, 3.5rem) 0.52rem;
+  border: 1.2px solid var(--olive);
+  border-radius: 999px;
+  color: var(--olive);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(2.9rem, 5vw, 5.1rem);
+  font-weight: 500;
+  line-height: 0.9;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  background: transparent;
+  outline: 1.2px dashed var(--olive);
+  outline-offset: 0.45rem;
+  box-shadow: none;
+  transform: none;
+}
+
+.details-section .eyebrow::before,
+.details-section .eyebrow::after,
+.dress-section .eyebrow::before,
+.dress-section .eyebrow::after,
+.form-section .eyebrow::before,
+.form-section .eyebrow::after,
+.countdown-section .eyebrow::before,
+.countdown-section .eyebrow::after {
+  position: absolute;
+  top: 50%;
+  width: clamp(2.4rem, 4vw, 3.4rem);
+  aspect-ratio: 1;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  content: "";
+}
+
+.details-section .eyebrow::before,
+.dress-section .eyebrow::before,
+.form-section .eyebrow::before,
+.countdown-section .eyebrow::before {
+  right: calc(100% + clamp(0.6rem, 1.4vw, 1rem));
+  background-image: url("assets/hero-leaves-left.png");
+  transform: translateY(-50%);
+}
+
+.details-section .eyebrow::after,
+.dress-section .eyebrow::after,
+.form-section .eyebrow::after,
+.countdown-section .eyebrow::after {
+  left: calc(100% + clamp(0.6rem, 1.4vw, 1rem));
+  background-image: url("assets/hero-leaves-right.png");
+  transform: translateY(-50%);
+}
+
+.section-flourish {
+  width: clamp(10.5rem, 18vw, 15rem);
+  height: auto;
+  margin: clamp(1.8rem, 3vw, 2.5rem) auto 0;
+}
+
 .details-list {
   display: grid;
-  gap: 1.1rem;
-  margin-top: 1.1rem;
+  width: min(100%, 86rem);
+  margin: clamp(3.3rem, 5vw, 4.8rem) 0 0;
   padding: 0;
   list-style: none;
 }
 
 .details-list li {
   position: relative;
-  padding-left: 1.85rem;
+  display: grid;
+  grid-template-columns: clamp(2.4rem, 4.2vw, 3.8rem) minmax(0, 1fr);
+  gap: clamp(1rem, 2.4vw, 1.8rem);
+  padding: clamp(1.65rem, 2.7vw, 2.25rem) 0;
+  border-bottom: 1px dashed rgb(244 170 163 / 0.62);
+}
+
+.details-list li:first-child {
+  padding-top: 0;
+}
+
+.details-list li:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
 }
 
 .details-list li::before {
-  position: absolute;
-  top: 0.02rem;
-  left: 0;
-  color: var(--pink);
-  font-family: "Comfortaa", "Nunito", Arial, sans-serif;
-  font-size: 1.35rem;
-  font-weight: 800;
+  color: var(--pink-soft);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(2rem, 3.4vw, 2.9rem);
+  font-weight: 400;
   line-height: 1;
-  content: "→";
+  content: "♡";
 }
 
 .details-list p {
   color: var(--ink);
-  font-size: clamp(1.18rem, 2.2vw, 1.55rem);
-  font-weight: 800;
-  line-height: 1.32;
+  font-family: "Nunito", Arial, sans-serif;
+  font-size: clamp(1.75rem, 2.55vw, 2.35rem);
+  font-weight: 300;
+  line-height: 1.48;
 }
 
 .dress-panel {
@@ -1331,22 +1439,24 @@ select:focus {
 }
 
 .dress-panel .eyebrow {
-  margin-bottom: 1.35rem;
+  margin-bottom: 0;
 }
 
 .dress-panel .dress-text {
-  width: min(100%, 43rem);
-  margin: 0 auto;
+  width: min(100%, 62rem);
+  margin: clamp(2.5rem, 4.4vw, 3.8rem) auto 0;
   color: var(--ink);
-  font-family: "Pangolin", "Nunito", Arial, sans-serif;
-  font-size: clamp(1.35rem, 2.8vw, 2rem);
-  font-weight: 800;
-  line-height: 1.35;
+  font-family: "Nunito", Arial, sans-serif;
+  font-size: clamp(1.55rem, 2.45vw, 2.25rem);
+  font-weight: 300;
+  line-height: 1.48;
 }
 
 .form-layout {
   display: grid;
-  gap: clamp(2rem, 6vw, 5rem);
+  gap: clamp(3rem, 7vw, 6.5rem);
+  width: min(100% - clamp(2rem, 8vw, 8rem), 1160px);
+  align-items: start;
 }
 
 .form-copy {
@@ -1354,24 +1464,51 @@ select:focus {
 }
 
 .form-copy h2 {
-  font-size: clamp(2rem, 4vw, 3rem);
+  width: min(100%, 36rem);
+  margin: clamp(2rem, 3.8vw, 3rem) 0 0;
+  color: var(--pink);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(3.1rem, 5.1vw, 5.6rem);
+  font-weight: 500;
+  line-height: 0.96;
+  letter-spacing: 0;
+}
+
+.form-copy .section-flourish {
+  margin-inline: 0;
+}
+
+.form-copy p:not(.eyebrow) {
+  width: min(100%, 34rem);
+  margin-top: clamp(1.8rem, 3vw, 2.4rem);
+  color: var(--ink);
+  font-family: "Nunito", Arial, sans-serif;
+  font-size: clamp(1.15rem, 1.7vw, 1.45rem);
+  font-weight: 300;
+  line-height: 1.45;
 }
 
 .rsvp-form {
   display: grid;
-  gap: 1.15rem;
+  gap: 0;
   padding: 0;
-  background-color: var(--cream);
-  background-image: var(--paper-texture);
-  background-repeat: repeat;
-  background-size: 11.25rem 11.25rem;
+  background: transparent;
 }
 
 .field {
   min-width: 0;
   margin: 0;
-  padding: 0;
+  padding: clamp(1.05rem, 2vw, 1.45rem) 0;
   border: 0;
+  border-bottom: 1px dashed rgb(244 170 163 / 0.55);
+}
+
+.field:first-child {
+  padding-top: 0;
+}
+
+.field:has(+ .button) {
+  border-bottom: 0;
 }
 
 .field span[aria-hidden="true"] {
@@ -1382,14 +1519,13 @@ select:focus {
   display: flex;
   align-items: center;
   gap: 0.65rem;
-  margin: 0.45rem 0 0;
+  margin: 0.65rem 0 0;
   min-height: 2.2rem;
   padding: 0;
   color: var(--ink);
-  background-color: var(--cream);
-  background-image: var(--paper-texture);
-  background-repeat: repeat;
-  background-size: 11.25rem 11.25rem;
+  background: transparent;
+  font-size: clamp(1.02rem, 1.35vw, 1.2rem);
+  font-weight: 300;
   cursor: pointer;
 }
 
@@ -1426,7 +1562,7 @@ select:focus {
   min-height: 1.7rem;
   margin: 0;
   color: var(--olive-deep);
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .result-panel {
@@ -1470,16 +1606,25 @@ select:focus {
 }
 
 .countdown-section {
-  min-height: auto;
   text-align: center;
+}
+
+.countdown-section h2 {
+  margin: clamp(2rem, 4vw, 3rem) 0 0;
+  color: var(--pink);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(4rem, 8vw, 8.1rem);
+  font-weight: 500;
+  line-height: 0.92;
+  letter-spacing: 0;
 }
 
 .countdown {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.65rem;
-  width: min(100%, 40rem);
-  margin: 1.5rem auto 0;
+  gap: clamp(1.4rem, 4vw, 3.4rem);
+  width: min(100%, 58rem);
+  margin: clamp(2.6rem, 4.6vw, 3.7rem) auto 0;
 }
 
 .countdown div {
@@ -1489,21 +1634,28 @@ select:focus {
 .countdown strong {
   display: block;
   color: var(--pink);
-  font-family: "Comfortaa", "Nunito", Arial, sans-serif;
-  font-size: clamp(1.65rem, 7vw, 2.45rem);
-  line-height: 1;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(3.1rem, 5.8vw, 5.4rem);
+  font-weight: 500;
+  line-height: 0.92;
 }
 
 .countdown span {
   display: block;
   margin-top: 0.35rem;
   color: var(--muted);
-  font-size: 0.95rem;
-  font-weight: 800;
+  font-size: clamp(0.95rem, 1.35vw, 1.18rem);
+  font-weight: 300;
 }
 
 .closing {
-  margin-top: 1.4rem;
+  width: min(100%, 42rem);
+  margin: clamp(2.3rem, 4vw, 3.2rem) auto 0;
+  color: var(--ink);
+  font-family: "Nunito", Arial, sans-serif;
+  font-size: clamp(1.32rem, 2.2vw, 1.9rem);
+  font-weight: 300;
+  line-height: 1.45;
 }
 
 .visually-hidden {
@@ -1820,6 +1972,165 @@ select:focus {
 
   .program-section .eyebrow::after {
     left: calc(100% + 0.4rem);
+  }
+
+  .details-section,
+  .dress-section,
+  .countdown-section {
+    min-height: var(--stable-vh, 100svh);
+    padding: clamp(4.6rem, 12vw, 6.2rem) 0;
+  }
+
+  .form-section {
+    min-height: auto;
+    padding: clamp(4.6rem, 12vw, 6.2rem) 0;
+  }
+
+  .details-section .paper-panel,
+  .dress-section .dress-panel,
+  .countdown-section .narrow {
+    width: min(100% - 1.35rem, 660px);
+  }
+
+  .details-section .eyebrow,
+  .dress-section .eyebrow,
+  .form-section .eyebrow,
+  .countdown-section .eyebrow {
+    min-width: min(100%, 15.8rem);
+    padding: 0.3rem 1.45rem 0.4rem;
+    font-size: clamp(1.6rem, 8.2vw, 2.45rem);
+    outline-offset: 0.28rem;
+  }
+
+  .details-section .eyebrow::before,
+  .details-section .eyebrow::after,
+  .dress-section .eyebrow::before,
+  .dress-section .eyebrow::after,
+  .form-section .eyebrow::before,
+  .form-section .eyebrow::after,
+  .countdown-section .eyebrow::before,
+  .countdown-section .eyebrow::after {
+    width: clamp(1.45rem, 6vw, 2rem);
+  }
+
+  .details-section .eyebrow::before,
+  .dress-section .eyebrow::before,
+  .form-section .eyebrow::before,
+  .countdown-section .eyebrow::before {
+    right: calc(100% + 0.4rem);
+  }
+
+  .details-section .eyebrow::after,
+  .dress-section .eyebrow::after,
+  .form-section .eyebrow::after,
+  .countdown-section .eyebrow::after {
+    left: calc(100% + 0.4rem);
+  }
+
+  .section-flourish {
+    width: clamp(9.2rem, 42vw, 12.5rem);
+    margin-top: clamp(1.4rem, 5vw, 2rem);
+  }
+
+  .details-list {
+    margin-top: clamp(2.35rem, 8vw, 3rem);
+  }
+
+  .details-list li {
+    grid-template-columns: 1.8rem minmax(0, 1fr);
+    gap: 0.72rem;
+    padding: clamp(1.05rem, 4.2vw, 1.35rem) 0;
+  }
+
+  .details-list li::before {
+    font-size: 1.7rem;
+  }
+
+  .details-list p {
+    font-size: clamp(1.05rem, 4.25vw, 1.22rem);
+    line-height: 1.48;
+  }
+
+  .dress-panel .dress-text {
+    width: min(100%, 23rem);
+    margin-top: clamp(2rem, 7vw, 2.8rem);
+    font-size: clamp(1.1rem, 4.4vw, 1.32rem);
+  }
+
+  .form-layout {
+    grid-template-columns: 1fr;
+    gap: clamp(2rem, 8vw, 3rem);
+    width: min(100% - 1.35rem, 660px);
+  }
+
+  .form-copy {
+    position: static;
+    top: auto;
+    text-align: center;
+  }
+
+  .form-copy h2,
+  .form-copy p:not(.eyebrow) {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .form-copy h2 {
+    width: min(100%, 23rem);
+    font-size: clamp(2.5rem, 12vw, 3.8rem);
+  }
+
+  .form-copy .section-flourish {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .form-copy p:not(.eyebrow) {
+    width: min(100%, 22rem);
+    font-size: clamp(1rem, 3.85vw, 1.12rem);
+  }
+
+  .rsvp-form {
+    width: min(100%, 24rem);
+    margin: 0 auto;
+  }
+
+  .field {
+    padding: clamp(0.95rem, 3.8vw, 1.2rem) 0;
+  }
+
+  .link-form label,
+  .field label,
+  .field legend,
+  .result-panel label {
+    font-size: clamp(0.98rem, 3.7vw, 1.08rem);
+  }
+
+  .choice {
+    font-size: clamp(0.96rem, 3.6vw, 1.05rem);
+  }
+
+  .rsvp-form > .button {
+    width: 100%;
+    margin-top: 0.75rem;
+  }
+
+  .countdown-section h2 {
+    font-size: clamp(3.15rem, 15vw, 4.85rem);
+  }
+
+  .countdown {
+    gap: clamp(1.2rem, 5vw, 1.9rem);
+    width: min(100%, 23rem);
+  }
+
+  .countdown strong {
+    font-size: clamp(2.65rem, 12vw, 3.65rem);
+  }
+
+  .closing {
+    width: min(100%, 22rem);
+    font-size: clamp(1.08rem, 4.2vw, 1.25rem);
   }
 
   .timeline {
