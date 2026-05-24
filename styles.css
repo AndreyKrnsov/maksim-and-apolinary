@@ -1295,7 +1295,7 @@ select:focus {
   display: grid;
   align-items: center;
   min-height: 100svh;
-  padding: clamp(5.8rem, 8vw, 7.4rem) 0;
+  padding: clamp(4.8rem, 6.5vw, 6.1rem) 0;
   overflow: hidden;
   background: transparent;
 }
@@ -1315,7 +1315,6 @@ select:focus {
 }
 
 .details-section .paper-panel,
-.dress-section .dress-panel,
 .countdown-section .narrow {
   display: grid;
   justify-items: center;
@@ -1330,21 +1329,21 @@ select:focus {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: clamp(20rem, 31vw, 27rem);
+  min-width: clamp(15rem, 24vw, 21rem);
   margin: 0;
-  padding: 0.34rem clamp(2.25rem, 4vw, 3.5rem) 0.52rem;
+  padding: 0.28rem clamp(1.75rem, 3vw, 2.65rem) 0.42rem;
   border: 1.2px solid var(--olive);
   border-radius: 999px;
   color: var(--olive);
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(2.9rem, 5vw, 5.1rem);
+  font-size: clamp(2.15rem, 3.4vw, 3.55rem);
   font-weight: 500;
   line-height: 0.9;
   letter-spacing: 0;
   text-transform: uppercase;
   background: transparent;
   outline: 1.2px dashed var(--olive);
-  outline-offset: 0.45rem;
+  outline-offset: 0.34rem;
   box-shadow: none;
   transform: none;
 }
@@ -1359,7 +1358,7 @@ select:focus {
 .countdown-section .eyebrow::after {
   position: absolute;
   top: 50%;
-  width: clamp(2.4rem, 4vw, 3.4rem);
+  width: clamp(1.9rem, 3vw, 2.6rem);
   aspect-ratio: 1;
   background-repeat: no-repeat;
   background-position: center;
@@ -1386,15 +1385,15 @@ select:focus {
 }
 
 .section-flourish {
-  width: clamp(10.5rem, 18vw, 15rem);
+  width: clamp(8.6rem, 14vw, 11.4rem);
   height: auto;
-  margin: clamp(1.8rem, 3vw, 2.5rem) auto 0;
+  margin: clamp(1.25rem, 2.2vw, 1.9rem) auto 0;
 }
 
 .details-list {
   display: grid;
-  width: min(100%, 86rem);
-  margin: clamp(3.3rem, 5vw, 4.8rem) 0 0;
+  width: min(100%, 78rem);
+  margin: clamp(2.6rem, 4vw, 3.7rem) 0 0;
   padding: 0;
   list-style: none;
 }
@@ -1402,9 +1401,9 @@ select:focus {
 .details-list li {
   position: relative;
   display: grid;
-  grid-template-columns: clamp(2.4rem, 4.2vw, 3.8rem) minmax(0, 1fr);
-  gap: clamp(1rem, 2.4vw, 1.8rem);
-  padding: clamp(1.65rem, 2.7vw, 2.25rem) 0;
+  grid-template-columns: clamp(1.9rem, 3vw, 2.65rem) minmax(0, 1fr);
+  gap: clamp(0.85rem, 1.8vw, 1.35rem);
+  padding: clamp(1.2rem, 2vw, 1.75rem) 0;
   border-bottom: 1px dashed rgb(244 170 163 / 0.62);
 }
 
@@ -1420,7 +1419,7 @@ select:focus {
 .details-list li::before {
   color: var(--pink-soft);
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(2rem, 3.4vw, 2.9rem);
+  font-size: clamp(1.55rem, 2.55vw, 2.2rem);
   font-weight: 400;
   line-height: 1;
   content: "♡";
@@ -1429,33 +1428,96 @@ select:focus {
 .details-list p {
   color: var(--ink);
   font-family: "Nunito", Arial, sans-serif;
-  font-size: clamp(1.75rem, 2.55vw, 2.35rem);
+  font-size: clamp(1.32rem, 2vw, 1.72rem);
   font-weight: 300;
   line-height: 1.48;
 }
 
 .dress-panel {
-  text-align: center;
+  display: grid;
+  grid-template-columns: minmax(18rem, 0.85fr) minmax(0, 1.15fr);
+  gap: clamp(3rem, 8vw, 7rem);
+  align-items: center;
+  width: min(100% - clamp(2rem, 8vw, 8rem), 1040px);
+  text-align: left;
+}
+
+.dress-section::after {
+  position: absolute;
+  right: clamp(2rem, 7vw, 6.2rem);
+  bottom: clamp(2.1rem, 5.5vw, 4.6rem);
+  z-index: 1;
+  width: clamp(6rem, 10vw, 9rem);
+  aspect-ratio: 773 / 643;
+  background-image: url("assets/screen2-branch.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  content: "";
+  pointer-events: none;
+  transform: rotate(-7deg);
 }
 
 .dress-panel .eyebrow {
   margin-bottom: 0;
 }
 
+.dress-heading {
+  display: grid;
+  justify-items: center;
+}
+
+.dress-body {
+  display: grid;
+  gap: clamp(1.8rem, 3vw, 2.5rem);
+}
+
+.dress-palette {
+  display: flex;
+  gap: clamp(0.85rem, 1.6vw, 1.25rem);
+  align-items: center;
+}
+
+.dress-swatch {
+  display: block;
+  width: clamp(2.3rem, 4vw, 3.4rem);
+  aspect-ratio: 1;
+  border: 1.2px solid rgb(120 133 99 / 0.26);
+  border-radius: 50%;
+  box-shadow: 0 0 0 0.24rem rgb(251 243 228 / 0.9);
+}
+
+.dress-swatch--coral {
+  background: #ef686e;
+}
+
+.dress-swatch--rose {
+  background: #f4aaa3;
+}
+
+.dress-swatch--sage {
+  background: #788563;
+}
+
+.dress-swatch--cream {
+  background: #f8ecd8;
+}
+
 .dress-panel .dress-text {
-  width: min(100%, 62rem);
-  margin: clamp(2.5rem, 4.4vw, 3.8rem) auto 0;
+  width: min(100%, 44rem);
+  margin: 0;
   color: var(--ink);
   font-family: "Nunito", Arial, sans-serif;
-  font-size: clamp(1.55rem, 2.45vw, 2.25rem);
+  font-size: clamp(1.25rem, 1.9vw, 1.65rem);
   font-weight: 300;
   line-height: 1.48;
 }
 
 .form-layout {
   display: grid;
-  gap: clamp(3rem, 7vw, 6.5rem);
-  width: min(100% - clamp(2rem, 8vw, 8rem), 1160px);
+  gap: clamp(1.8rem, 3.7vw, 3.2rem);
+  justify-items: center;
+  width: min(100% - clamp(2rem, 8vw, 8rem), 1120px);
   align-items: start;
 }
 
@@ -1464,23 +1526,23 @@ select:focus {
 }
 
 .form-copy h2 {
-  width: min(100%, 36rem);
-  margin: clamp(2rem, 3.8vw, 3rem) 0 0;
+  width: min(100%, 44rem);
+  margin: clamp(1.2rem, 2.1vw, 1.8rem) auto 0;
   color: var(--pink);
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(3.1rem, 5.1vw, 5.6rem);
+  font-size: clamp(2.15rem, 3.35vw, 3.55rem);
   font-weight: 500;
   line-height: 0.96;
   letter-spacing: 0;
 }
 
 .form-copy .section-flourish {
-  margin-inline: 0;
+  margin-inline: auto;
 }
 
 .form-copy p:not(.eyebrow) {
-  width: min(100%, 34rem);
-  margin-top: clamp(1.8rem, 3vw, 2.4rem);
+  width: min(100%, 37rem);
+  margin: clamp(1rem, 1.9vw, 1.5rem) auto 0;
   color: var(--ink);
   font-family: "Nunito", Arial, sans-serif;
   font-size: clamp(1.15rem, 1.7vw, 1.45rem);
@@ -1490,7 +1552,10 @@ select:focus {
 
 .rsvp-form {
   display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: clamp(2rem, 4.5vw, 4rem);
   gap: 0;
+  width: min(100%, 64rem);
   padding: 0;
   background: transparent;
 }
@@ -1498,7 +1563,7 @@ select:focus {
 .field {
   min-width: 0;
   margin: 0;
-  padding: clamp(1.05rem, 2vw, 1.45rem) 0;
+  padding: clamp(0.72rem, 1.22vw, 1rem) 0;
   border: 0;
   border-bottom: 1px dashed rgb(244 170 163 / 0.55);
 }
@@ -1511,6 +1576,22 @@ select:focus {
   border-bottom: 0;
 }
 
+.rsvp-form > .field:nth-child(1),
+.rsvp-form > .button,
+.rsvp-form > .form-status,
+.rsvp-form > .result-panel {
+  grid-column: 1 / -1;
+}
+
+.rsvp-form > .field:nth-child(5) {
+  display: block;
+}
+
+.rsvp-form > .field:nth-child(5) legend,
+.rsvp-form > .field:nth-child(5) .error {
+  grid-column: auto;
+}
+
 .field span[aria-hidden="true"] {
   color: var(--pink);
 }
@@ -1519,8 +1600,8 @@ select:focus {
   display: flex;
   align-items: center;
   gap: 0.65rem;
-  margin: 0.65rem 0 0;
-  min-height: 2.2rem;
+  margin: 0.48rem 0 0;
+  min-height: 1.8rem;
   padding: 0;
   color: var(--ink);
   background: transparent;
@@ -1535,9 +1616,9 @@ select:focus {
 }
 
 .choice input {
-  width: 1.05rem;
+  width: 0.9rem;
   min-height: auto;
-  height: 1.05rem;
+  height: 0.9rem;
   accent-color: var(--pink);
   background: var(--cream);
 }
@@ -1563,6 +1644,10 @@ select:focus {
   margin: 0;
   color: var(--olive-deep);
   font-weight: 600;
+}
+
+.rsvp-form textarea {
+  min-height: 4.6rem;
 }
 
 .result-panel {
@@ -1610,32 +1695,70 @@ select:focus {
 }
 
 .countdown-section h2 {
-  margin: clamp(2rem, 4vw, 3rem) 0 0;
+  margin: clamp(1.65rem, 3vw, 2.35rem) 0 0;
   color: var(--pink);
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(4rem, 8vw, 8.1rem);
+  font-size: clamp(3.25rem, 5.7vw, 5.75rem);
   font-weight: 500;
   line-height: 0.92;
   letter-spacing: 0;
 }
 
 .countdown {
+  --countdown-gap: clamp(1.1rem, 3vw, 2.4rem);
+  position: relative;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: clamp(1.4rem, 4vw, 3.4rem);
-  width: min(100%, 58rem);
-  margin: clamp(2.6rem, 4.6vw, 3.7rem) auto 0;
+  gap: var(--countdown-gap);
+  width: min(100%, 43rem);
+  margin: clamp(2.1rem, 3.7vw, 3rem) auto 0;
+  padding: clamp(1rem, 2vw, 1.45rem) 0;
+  border-top: 1px dashed rgb(244 170 163 / 0.55);
+  border-bottom: 1px dashed rgb(244 170 163 / 0.55);
+}
+
+.countdown::before,
+.countdown::after {
+  position: absolute;
+  left: 50%;
+  width: 1.6rem;
+  color: var(--pink-soft);
+  background: var(--cream);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.3rem;
+  line-height: 1;
+  content: "♡";
+  transform: translateX(-50%);
+}
+
+.countdown::before {
+  top: -0.65rem;
+}
+
+.countdown::after {
+  bottom: -0.72rem;
 }
 
 .countdown div {
+  position: relative;
   padding: 0;
+}
+
+.countdown div + div::before {
+  position: absolute;
+  top: 15%;
+  bottom: 15%;
+  left: calc(var(--countdown-gap) / -2);
+  width: 1px;
+  background: rgb(244 170 163 / 0.42);
+  content: "";
 }
 
 .countdown strong {
   display: block;
   color: var(--pink);
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(3.1rem, 5.8vw, 5.4rem);
+  font-size: clamp(2.65rem, 4.8vw, 4.35rem);
   font-weight: 500;
   line-height: 0.92;
 }
@@ -1649,11 +1772,11 @@ select:focus {
 }
 
 .closing {
-  width: min(100%, 42rem);
-  margin: clamp(2.3rem, 4vw, 3.2rem) auto 0;
+  width: min(100%, 36rem);
+  margin: clamp(2rem, 3.4vw, 2.7rem) auto 0;
   color: var(--ink);
   font-family: "Nunito", Arial, sans-serif;
-  font-size: clamp(1.32rem, 2.2vw, 1.9rem);
+  font-size: clamp(1.12rem, 1.75vw, 1.46rem);
   font-weight: 300;
   line-height: 1.45;
 }
@@ -1689,14 +1812,8 @@ select:focus {
   }
 
   .form-layout {
-    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    grid-template-columns: 1fr;
     align-items: start;
-  }
-
-  .form-copy {
-    position: sticky;
-    top: 2rem;
-    text-align: left;
   }
 }
 
@@ -1996,9 +2113,9 @@ select:focus {
   .dress-section .eyebrow,
   .form-section .eyebrow,
   .countdown-section .eyebrow {
-    min-width: min(100%, 15.8rem);
-    padding: 0.3rem 1.45rem 0.4rem;
-    font-size: clamp(1.6rem, 8.2vw, 2.45rem);
+    min-width: min(100%, 14.8rem);
+    padding: 0.28rem 1.35rem 0.38rem;
+    font-size: clamp(1.48rem, 7.3vw, 2.16rem);
     outline-offset: 0.28rem;
   }
 
@@ -2057,6 +2174,31 @@ select:focus {
     font-size: clamp(1.1rem, 4.4vw, 1.32rem);
   }
 
+  .dress-panel {
+    grid-template-columns: 1fr;
+    gap: clamp(2rem, 8vw, 3rem);
+    width: min(100% - 1.35rem, 660px);
+    text-align: center;
+  }
+
+  .dress-section::after {
+    right: 1rem;
+    bottom: clamp(1.6rem, 7vw, 2.5rem);
+    width: clamp(4.8rem, 18vw, 6.4rem);
+  }
+
+  .dress-body {
+    justify-items: center;
+  }
+
+  .dress-palette {
+    justify-content: center;
+  }
+
+  .dress-swatch {
+    width: clamp(2rem, 8vw, 2.8rem);
+  }
+
   .form-layout {
     grid-template-columns: 1fr;
     gap: clamp(2rem, 8vw, 3rem);
@@ -2077,7 +2219,7 @@ select:focus {
 
   .form-copy h2 {
     width: min(100%, 23rem);
-    font-size: clamp(2.5rem, 12vw, 3.8rem);
+    font-size: clamp(2.05rem, 8.8vw, 2.85rem);
   }
 
   .form-copy .section-flourish {
@@ -2091,12 +2233,17 @@ select:focus {
   }
 
   .rsvp-form {
+    grid-template-columns: 1fr;
     width: min(100%, 24rem);
     margin: 0 auto;
   }
 
+  .rsvp-form > .field:nth-child(5) {
+    grid-template-columns: 1fr;
+  }
+
   .field {
-    padding: clamp(0.95rem, 3.8vw, 1.2rem) 0;
+    padding: clamp(0.82rem, 3.4vw, 1.05rem) 0;
   }
 
   .link-form label,
@@ -2116,16 +2263,20 @@ select:focus {
   }
 
   .countdown-section h2 {
-    font-size: clamp(3.15rem, 15vw, 4.85rem);
+    font-size: clamp(2.9rem, 12.2vw, 4.05rem);
   }
 
   .countdown {
-    gap: clamp(1.2rem, 5vw, 1.9rem);
+    --countdown-gap: clamp(1.2rem, 5vw, 1.9rem);
     width: min(100%, 23rem);
   }
 
+  .countdown div + div::before {
+    display: none;
+  }
+
   .countdown strong {
-    font-size: clamp(2.65rem, 12vw, 3.65rem);
+    font-size: clamp(2.35rem, 10vw, 3.2rem);
   }
 
   .closing {
