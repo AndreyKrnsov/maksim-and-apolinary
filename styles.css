@@ -863,7 +863,8 @@ input:focus,
 textarea:focus,
 select:focus {
   border-color: var(--olive-deep);
-  outline: 3px solid var(--pink-soft);
+  outline: 0;
+  box-shadow: 0 1px 0 var(--olive-deep);
 }
 
 .button,
@@ -1272,10 +1273,16 @@ select:focus {
   line-height: 1.28;
 }
 
-.timeline-item:last-child p {
-  max-width: 42rem;
-  font-size: clamp(1.55rem, 2.1vw, 1.9rem);
-  line-height: 1.35;
+.timeline-title,
+.timeline-note {
+  display: block;
+}
+
+.timeline-note {
+  width: min(100%, 34rem);
+  margin-top: 0.35rem;
+  font-size: clamp(1.12rem, 1.65vw, 1.42rem);
+  line-height: 1.38;
 }
 
 .section.details-section::before {
@@ -1519,7 +1526,7 @@ select:focus {
 
 .rsvp-form {
   display: grid;
-  gap: 0;
+  gap: clamp(1.05rem, 1.8vw, 1.45rem);
   width: min(100%, 54rem);
   padding: 0;
   background: transparent;
@@ -1528,17 +1535,12 @@ select:focus {
 .field {
   min-width: 0;
   margin: 0;
-  padding: clamp(0.92rem, 1.55vw, 1.22rem) 0;
+  padding: 0;
   border: 0;
-  border-bottom: 1px dashed rgb(244 170 163 / 0.55);
 }
 
 .field:first-child {
   padding-top: 0;
-}
-
-.field:has(+ .button) {
-  border-bottom: 0;
 }
 
 .rsvp-form > .field:nth-child(5) {
@@ -1552,16 +1554,6 @@ select:focus {
 
 .field span[aria-hidden="true"] {
   color: var(--pink);
-}
-
-.rsvp-form .field:has(> input),
-.rsvp-form .field:has(> textarea) {
-  border-bottom: 0;
-}
-
-.rsvp-form .field:has(> input) + .field,
-.rsvp-form .field:has(> textarea) + .field {
-  padding-top: clamp(1.15rem, 2vw, 1.55rem);
 }
 
 .choice {
@@ -2270,9 +2262,11 @@ select:focus {
     line-height: 1.28;
   }
 
-  .timeline-item:last-child p {
-    font-size: clamp(0.82rem, 3.2vw, 0.98rem);
-    line-height: 1.35;
+  .timeline-note {
+    width: min(100%, 12rem);
+    margin-top: 0.18rem;
+    font-size: clamp(0.78rem, 3vw, 0.92rem);
+    line-height: 1.32;
   }
 
   .countdown {
