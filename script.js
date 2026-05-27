@@ -1,5 +1,6 @@
-const RSVP_ENDPOINT = "";
-const GOOGLE_FORM_ACTION = "";
+const RSVP_CONFIG = window.RSVP_CONFIG || {};
+const RSVP_ENDPOINT = RSVP_CONFIG.endpoint || "";
+const GOOGLE_FORM_ACTION = RSVP_CONFIG.googleFormAction || "";
 const GOOGLE_FORM_FIELDS = {
   guestName: "",
   attendance: "",
@@ -8,6 +9,7 @@ const GOOGLE_FORM_FIELDS = {
   transfer: "",
   invitationFor: "",
   submittedAt: "",
+  ...(RSVP_CONFIG.googleFormFields || {}),
 };
 
 const WEDDING_DATE = new Date("2026-08-08T15:00:00+04:00");

@@ -11,6 +11,7 @@
   --muted: #7b6f66;
   --white: #fffdf7;
   --error: #b91c1c;
+  --display-serif: "Cormorant Garamond", Georgia, serif;
   --stable-vh: 100svh;
   --paper-texture:
     radial-gradient(circle at 18% 24%, rgb(119 100 70 / 0.045) 0 1px, transparent 1.4px),
@@ -31,6 +32,7 @@ html {
 body {
   margin: 0;
   min-width: 320px;
+  overflow-x: hidden;
   color: var(--ink);
   font-family: "Nunito", Arial, sans-serif;
   font-size: 1.05rem;
@@ -69,24 +71,6 @@ a {
 
 [hidden] {
   display: none !important;
-}
-
-.skip-link {
-  position: fixed;
-  top: 1rem;
-  left: 1rem;
-  z-index: 20;
-  transform: translateY(-180%);
-  padding: 0.55rem 0.85rem;
-  border: 2px solid var(--olive-deep);
-  border-radius: 999px;
-  color: var(--white);
-  background: var(--olive-deep);
-  transition: transform 180ms ease;
-}
-
-.skip-link:focus {
-  transform: translateY(0);
 }
 
 .music-toggle {
@@ -338,7 +322,7 @@ p {
   padding: 0.28rem clamp(1.8rem, 4vw, 2.65rem) 0.38rem;
   border: 1.2px solid var(--olive);
   color: var(--olive-deep);
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: var(--display-serif);
   font-size: clamp(1.5rem, 2.75vw, 2.12rem);
   font-weight: 500;
   letter-spacing: 0;
@@ -376,7 +360,7 @@ p {
 .hero h1 {
   margin: 0;
   color: var(--pink);
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: var(--display-serif);
   font-size: clamp(4.85rem, 9.15vw, 7.45rem);
   font-weight: 500;
   line-height: 0.9;
@@ -392,7 +376,7 @@ p {
   display: inline-block;
   margin-left: 0.06em;
   color: var(--pink-soft);
-  font-family: "Marck Script", "Cormorant Garamond", cursive;
+  font-family: "Marck Script", var(--display-serif), cursive;
   font-size: 0.45em;
   font-weight: 400;
   line-height: 0;
@@ -504,7 +488,7 @@ p {
   gap: 0.15rem;
   margin-top: clamp(0.55rem, 1.3svh, 0.9rem);
   color: var(--pink);
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: var(--display-serif);
   font-size: clamp(1.48rem, 2.45vw, 1.95rem);
   font-weight: 400;
   line-height: 1;
@@ -655,7 +639,7 @@ p {
   display: block;
   margin: 0 auto clamp(1rem, 1.7vw, 1.5rem);
   color: var(--pink);
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: var(--display-serif);
   font-size: clamp(3.8rem, 7vw, 6.9rem);
   font-weight: 500;
   line-height: 0.96;
@@ -711,7 +695,7 @@ p {
   border: 1.25px solid var(--olive);
   border-radius: 999px;
   color: var(--olive);
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: var(--display-serif);
   font-size: clamp(1.24rem, 2vw, 1.55rem);
   font-weight: 500;
   line-height: 1;
@@ -749,7 +733,7 @@ p {
 .invite-date-panel h2,
 .invite-place-panel h2 {
   color: var(--pink);
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: var(--display-serif);
   font-size: clamp(3.5rem, 5.2vw, 5.25rem);
   font-weight: 500;
   line-height: 0.92;
@@ -1170,7 +1154,7 @@ select:focus {
   border: 1.2px solid var(--olive);
   border-radius: 999px;
   color: var(--olive);
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: var(--display-serif);
   font-size: clamp(1.9rem, 3.05vw, 2.55rem);
   font-weight: 500;
   line-height: 1;
@@ -1245,7 +1229,7 @@ select:focus {
 
 .timeline-item time {
   color: var(--pink);
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: var(--display-serif);
   font-size: clamp(4.05rem, 6vw, 5.45rem);
   font-weight: 500;
   line-height: 0.94;
@@ -1345,7 +1329,7 @@ select:focus {
   border: 1.2px solid var(--olive);
   border-radius: 999px;
   color: var(--olive);
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: var(--display-serif);
   font-size: clamp(2.15rem, 3.4vw, 3.55rem);
   font-weight: 500;
   line-height: 0.9;
@@ -1451,7 +1435,7 @@ select:focus {
 .details-section::after {
   position: absolute;
   left: clamp(-1.5rem, 3vw, 3rem);
-  bottom: clamp(0.2rem, 2vw, 1.7rem);
+  bottom: clamp(-2.2rem, -0.8vw, -0.7rem);
   z-index: 1;
   width: clamp(10rem, 20vw, 17rem);
   aspect-ratio: 1122 / 1402;
@@ -1510,7 +1494,7 @@ select:focus {
   width: min(100%, 44rem);
   margin: clamp(1.2rem, 2.1vw, 1.8rem) auto 0;
   color: var(--pink);
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: var(--display-serif);
   font-size: clamp(2.15rem, 3.35vw, 3.55rem);
   font-weight: 500;
   line-height: 0.96;
@@ -1664,7 +1648,7 @@ select:focus {
 .countdown-section h2 {
   margin: clamp(1.65rem, 3vw, 2.35rem) 0 0;
   color: var(--pink);
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: var(--display-serif);
   font-size: clamp(3.25rem, 5.7vw, 5.75rem);
   font-weight: 500;
   line-height: 0.92;
@@ -1691,7 +1675,7 @@ select:focus {
   width: 1.6rem;
   color: var(--pink-soft);
   background: var(--cream);
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: var(--display-serif);
   font-size: 1.3rem;
   line-height: 1;
   content: "♡";
@@ -1724,7 +1708,7 @@ select:focus {
 .countdown strong {
   display: block;
   color: var(--pink);
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: var(--display-serif);
   font-size: clamp(2.65rem, 4.8vw, 4.35rem);
   font-weight: 500;
   line-height: 0.92;
@@ -1953,6 +1937,7 @@ select:focus {
 
   .memory-card > img {
     height: clamp(12.3rem, 45vw, 31rem);
+    filter: drop-shadow(0.3rem 0.45rem 0 rgb(244 170 163 / 0.3));
   }
 
   .memory-name {
@@ -2141,10 +2126,7 @@ select:focus {
   }
 
   .details-section::after {
-    left: -2.9rem;
-    bottom: 0.65rem;
-    width: clamp(5.8rem, 25vw, 7.2rem);
-    opacity: 0.92;
+    display: none;
   }
 
   .dress-panel .dress-text {
