@@ -1289,14 +1289,12 @@ select:focus {
   display: none;
 }
 
-.section.dress-section::before,
 .section.form-section::before,
 .section.countdown-section::before {
   display: none;
 }
 
 .section.details-section,
-.section.dress-section,
 .section.form-section,
 .section.countdown-section {
   display: grid;
@@ -1321,7 +1319,12 @@ select:focus {
   color: var(--pink);
 }
 
-.details-section .paper-panel,
+.details-section .paper-panel {
+  display: grid;
+  justify-items: center;
+  width: min(100% - clamp(2rem, 8vw, 8rem), 78rem);
+}
+
 .countdown-section .narrow {
   display: grid;
   justify-items: center;
@@ -1329,7 +1332,7 @@ select:focus {
 }
 
 .details-section .eyebrow,
-.dress-section .eyebrow,
+.details-section .dress-panel .eyebrow,
 .form-section .eyebrow,
 .countdown-section .eyebrow {
   position: relative;
@@ -1357,8 +1360,6 @@ select:focus {
 
 .details-section .eyebrow::before,
 .details-section .eyebrow::after,
-.dress-section .eyebrow::before,
-.dress-section .eyebrow::after,
 .form-section .eyebrow::before,
 .form-section .eyebrow::after,
 .countdown-section .eyebrow::before,
@@ -1374,7 +1375,6 @@ select:focus {
 }
 
 .details-section .eyebrow::before,
-.dress-section .eyebrow::before,
 .form-section .eyebrow::before,
 .countdown-section .eyebrow::before {
   right: calc(100% + clamp(0.6rem, 1.4vw, 1rem));
@@ -1383,7 +1383,6 @@ select:focus {
 }
 
 .details-section .eyebrow::after,
-.dress-section .eyebrow::after,
 .form-section .eyebrow::after,
 .countdown-section .eyebrow::after {
   left: calc(100% + clamp(0.6rem, 1.4vw, 1rem));
@@ -1399,8 +1398,8 @@ select:focus {
 
 .details-list {
   display: grid;
-  width: min(100%, 78rem);
-  margin: clamp(2.6rem, 4vw, 3.7rem) 0 0;
+  width: min(100%, 60rem);
+  margin: clamp(2.8rem, 4.2vw, 4.1rem) 0 0;
   padding: 0;
   list-style: none;
 }
@@ -1408,10 +1407,11 @@ select:focus {
 .details-list li {
   position: relative;
   display: grid;
-  grid-template-columns: clamp(1.9rem, 3vw, 2.65rem) minmax(0, 1fr);
-  gap: clamp(0.85rem, 1.8vw, 1.35rem);
-  padding: clamp(1.2rem, 2vw, 1.75rem) 0;
-  border-bottom: 1px dashed rgb(244 170 163 / 0.62);
+  grid-template-columns: clamp(1.85rem, 3vw, 2.55rem) minmax(0, 1fr);
+  gap: clamp(0.9rem, 1.7vw, 1.35rem);
+  align-items: start;
+  padding: clamp(1.25rem, 2.2vw, 1.8rem) 0;
+  border-bottom: 1px dashed rgb(120 133 99 / 0.28);
 }
 
 .details-list li:first-child {
@@ -1419,17 +1419,17 @@ select:focus {
 }
 
 .details-list li:last-child {
-  border-bottom: 0;
   padding-bottom: 0;
+  border-bottom: 0;
 }
 
 .details-list li::before {
-  color: var(--pink-soft);
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(1.55rem, 2.55vw, 2.2rem);
-  font-weight: 400;
-  line-height: 1;
-  content: "♡";
+  color: var(--pink);
+  font-family: "Nunito", Arial, sans-serif;
+  font-size: clamp(1.3rem, 2.1vw, 1.7rem);
+  font-weight: 300;
+  line-height: 1.45;
+  content: "-";
 }
 
 .details-list p {
@@ -1440,27 +1440,32 @@ select:focus {
   line-height: 1.48;
 }
 
-.dress-panel {
-  display: grid;
-  justify-items: center;
-  width: min(100% - clamp(2rem, 8vw, 8rem), 760px);
-  text-align: center;
+.details-dress-divider {
+  width: min(100%, 60rem);
+  height: auto;
+  margin: clamp(2.9rem, 4.8vw, 4.3rem) auto clamp(3rem, 5vw, 4.4rem);
 }
 
-.dress-section::after {
+.details-section::after {
   position: absolute;
-  right: clamp(2rem, 7vw, 6.2rem);
-  bottom: clamp(2.1rem, 5.5vw, 4.6rem);
+  left: clamp(-1.5rem, 3vw, 3rem);
+  bottom: clamp(0.2rem, 2vw, 1.7rem);
   z-index: 1;
-  width: clamp(6rem, 10vw, 9rem);
-  aspect-ratio: 773 / 643;
-  background-image: url("assets/screen2-branch.png");
+  width: clamp(10rem, 20vw, 17rem);
+  aspect-ratio: 1122 / 1402;
+  background-image: url("assets/details-dress-branch.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
   content: "";
   pointer-events: none;
-  transform: rotate(-7deg);
+}
+
+.dress-panel {
+  display: grid;
+  justify-items: center;
+  width: min(100%, 52rem);
+  text-align: center;
 }
 
 .dress-panel .eyebrow {
@@ -1478,11 +1483,11 @@ select:focus {
 }
 
 .dress-panel .dress-text {
-  width: min(100%, 50rem);
-  margin: clamp(2rem, 3.6vw, 3rem) auto 0;
+  width: min(100%, 42rem);
+  margin: clamp(1.7rem, 3vw, 2.45rem) auto 0;
   color: var(--ink);
   font-family: "Nunito", Arial, sans-serif;
-  font-size: clamp(1.25rem, 1.9vw, 1.65rem);
+  font-size: clamp(1.15rem, 1.65vw, 1.42rem);
   font-weight: 300;
   line-height: 1.48;
 }
@@ -2052,10 +2057,13 @@ select:focus {
   }
 
   .section.details-section,
-  .section.dress-section,
   .section.countdown-section {
     min-height: auto;
     padding: clamp(3.1rem, 8.6vw, 4.2rem) 0;
+  }
+
+  .section.details-section {
+    padding-bottom: clamp(6.8rem, 20vw, 8.4rem);
   }
 
   .section.form-section {
@@ -2064,13 +2072,11 @@ select:focus {
   }
 
   .details-section .paper-panel,
-  .dress-section .dress-panel,
   .countdown-section .narrow {
     width: min(100% - 1.35rem, 660px);
   }
 
   .details-section .eyebrow,
-  .dress-section .eyebrow,
   .form-section .eyebrow,
   .countdown-section .eyebrow {
     min-width: min(100%, 14.8rem);
@@ -2081,8 +2087,6 @@ select:focus {
 
   .details-section .eyebrow::before,
   .details-section .eyebrow::after,
-  .dress-section .eyebrow::before,
-  .dress-section .eyebrow::after,
   .form-section .eyebrow::before,
   .form-section .eyebrow::after,
   .countdown-section .eyebrow::before,
@@ -2091,14 +2095,12 @@ select:focus {
   }
 
   .details-section .eyebrow::before,
-  .dress-section .eyebrow::before,
   .form-section .eyebrow::before,
   .countdown-section .eyebrow::before {
     right: calc(100% + 0.4rem);
   }
 
   .details-section .eyebrow::after,
-  .dress-section .eyebrow::after,
   .form-section .eyebrow::after,
   .countdown-section .eyebrow::after {
     left: calc(100% + 0.4rem);
@@ -2128,6 +2130,18 @@ select:focus {
     line-height: 1.48;
   }
 
+  .details-dress-divider {
+    width: min(100%, 23rem);
+    margin: clamp(2.2rem, 8vw, 3rem) auto clamp(2.2rem, 8vw, 3rem);
+  }
+
+  .details-section::after {
+    left: -2.9rem;
+    bottom: 0.65rem;
+    width: clamp(5.8rem, 25vw, 7.2rem);
+    opacity: 0.92;
+  }
+
   .dress-panel .dress-text {
     width: min(100%, 23rem);
     margin-top: clamp(1.65rem, 6vw, 2.25rem);
@@ -2137,14 +2151,8 @@ select:focus {
   .dress-panel {
     grid-template-columns: 1fr;
     gap: clamp(2rem, 8vw, 3rem);
-    width: min(100% - 1.35rem, 660px);
+    width: 100%;
     text-align: center;
-  }
-
-  .dress-section::after {
-    right: 1rem;
-    bottom: clamp(1.6rem, 7vw, 2.5rem);
-    width: clamp(4.8rem, 18vw, 6.4rem);
   }
 
   .dress-body {
