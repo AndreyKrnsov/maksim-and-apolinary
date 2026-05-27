@@ -1407,8 +1407,8 @@ select:focus {
 .details-list li {
   position: relative;
   display: grid;
-  grid-template-columns: clamp(1.85rem, 3vw, 2.55rem) minmax(0, 1fr);
-  gap: clamp(0.9rem, 1.7vw, 1.35rem);
+  grid-template-columns: clamp(2.2rem, 3.6vw, 3rem) minmax(0, 1fr);
+  gap: clamp(0.72rem, 1.25vw, 1rem);
   align-items: start;
   padding: clamp(1.25rem, 2.2vw, 1.8rem) 0;
   border-bottom: 1px dashed rgb(120 133 99 / 0.28);
@@ -1424,12 +1424,12 @@ select:focus {
 }
 
 .details-list li::before {
-  color: var(--pink);
-  font-family: "Nunito", Arial, sans-serif;
-  font-size: clamp(1.3rem, 2.1vw, 1.7rem);
-  font-weight: 300;
-  line-height: 1.45;
-  content: "-";
+  display: block;
+  width: clamp(1.05rem, 1.65vw, 1.35rem);
+  height: 2px;
+  margin-top: 0.78em;
+  background: var(--pink);
+  content: "";
 }
 
 .details-list p {
@@ -1442,8 +1442,10 @@ select:focus {
 
 .details-dress-divider {
   width: min(100%, 60rem);
-  height: auto;
-  margin: clamp(2.9rem, 4.8vw, 4.3rem) auto clamp(3rem, 5vw, 4.4rem);
+  height: clamp(1.75rem, 3vw, 2.6rem);
+  margin: clamp(2.15rem, 3.7vw, 3.2rem) auto clamp(2.1rem, 3.6vw, 3rem);
+  object-fit: cover;
+  object-position: center;
 }
 
 .details-section::after {
@@ -1483,7 +1485,7 @@ select:focus {
 }
 
 .dress-panel .dress-text {
-  width: min(100%, 42rem);
+  width: min(100%, 34.5rem);
   margin: clamp(1.7rem, 3vw, 2.45rem) auto 0;
   color: var(--ink);
   font-family: "Nunito", Arial, sans-serif;
@@ -2116,13 +2118,15 @@ select:focus {
   }
 
   .details-list li {
-    grid-template-columns: 1.8rem minmax(0, 1fr);
-    gap: 0.72rem;
+    grid-template-columns: 1.85rem minmax(0, 1fr);
+    gap: 0.55rem;
     padding: clamp(1.05rem, 4.2vw, 1.35rem) 0;
   }
 
   .details-list li::before {
-    font-size: 1.7rem;
+    width: 1rem;
+    height: 1.5px;
+    margin-top: 0.8em;
   }
 
   .details-list p {
@@ -2132,7 +2136,8 @@ select:focus {
 
   .details-dress-divider {
     width: min(100%, 23rem);
-    margin: clamp(2.2rem, 8vw, 3rem) auto clamp(2.2rem, 8vw, 3rem);
+    height: clamp(1.35rem, 6vw, 1.9rem);
+    margin: clamp(1.75rem, 6.5vw, 2.35rem) auto clamp(1.7rem, 6vw, 2.25rem);
   }
 
   .details-section::after {
