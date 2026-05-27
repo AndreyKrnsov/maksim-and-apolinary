@@ -181,39 +181,8 @@ window.addEventListener(
   { once: true }
 );
 
-async function copyText(text) {
-  if (!text) {
-    return false;
-  }
-
-  if (navigator.clipboard && window.isSecureContext) {
-    await navigator.clipboard.writeText(text);
-    return true;
-  }
-
-  const helper = document.createElement("textarea");
-  helper.value = text;
-  helper.setAttribute("readonly", "");
-  helper.style.position = "fixed";
-  helper.style.left = "-9999px";
-  helper.style.top = "0";
-  document.body.append(helper);
-  helper.select();
-  const copied = document.execCommand("copy");
-  helper.remove();
-  return copied;
-}
-
 const rsvpForm = document.querySelector("#rsvpForm");
 const formStatus = document.querySelector("#formStatus");
-const resultPanel = document.querySelector("#resultPanel");
-const resultText = document.querySelector("#resultText");
-const copyResult = document.querySelector("#copyResult");
-const shareResult = document.querySelector("#shareResult");
-
-if (!navigator.share) {
-  shareResult.hidden = true;
-}
 
 function getFormData(form) {
   const formData = new FormData(form);
@@ -226,19 +195,6 @@ function getFormData(form) {
     invitationFor: invitedGuests || "Гости без именной ссылки",
     submittedAt: new Date().toLocaleString("ru-RU"),
   };
-}
-
-function formatAnswer(data) {
-  return [
-    "Анкета гостя на свадьбу Максима и Полины",
-    `Для приглашения: ${data.invitationFor}`,
-    `ФИО: ${data.guestName}`,
-    `Присутствие: ${data.attendance}`,
-    `Ночевка: ${data.overnight}`,
-    `Алкоголь: ${data.alcohol}`,
-    `Трансфер в г. Воткинск: ${data.transfer}`,
-    `Отправлено: ${data.submittedAt}`,
-  ].join("\n");
 }
 
 function googleFormIsConfigured() {
@@ -297,43 +253,22 @@ rsvpForm.addEventListener("submit", async (event) => {
   }
 
   const data = getFormData(rsvpForm);
-  const answer = formatAnswer(data);
   localStorage.setItem("maksim-polina-rsvp", JSON.stringify(data));
-  resultText.value = answer;
-  resultPanel.hidden = false;
   formStatus.textContent = "Анкета сохранена в этом браузере.";
 
   try {
     const result = await sendAnswer(data);
     formStatus.textContent = result.sent
       ? "Спасибо! Ответ отправлен."
-      : "Анкета готова. Скопируйте ответ или поделитесь им.";
+      : "Анкета сохранена в этом браузере.";
   } catch {
-    formStatus.textContent = "Анкета готова, но отправка не удалась. Скопируйте ответ вручную.";
+    formStatus.textContent = "Не удалось отправить анкету. Попробуйте еще раз.";
   }
 });
 
 rsvpForm.addEventListener("input", () => {
   if (rsvpForm.classList.contains("was-validated")) {
     formStatus.textContent = "";
-  }
-});
-
-copyResult.addEventListener("click", async () => {
-  const copied = await copyText(resultText.value);
-  formStatus.textContent = copied ? "Ответ скопирован." : "Не удалось скопировать ответ.";
-});
-
-shareResult.addEventListener("click", async () => {
-  try {
-    await navigator.share({
-      title: "Анкета на свадьбу Максима и Полины",
-      text: resultText.value,
-    });
-  } catch (error) {
-    if (error.name !== "AbortError") {
-      formStatus.textContent = "Не удалось открыть системное меню отправки.";
-    }
   }
 });
 
