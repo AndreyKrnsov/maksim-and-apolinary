@@ -988,7 +988,7 @@ select:focus {
   background-position: center;
   background-size: contain;
   pointer-events: none;
-  transform: translate(-50%, -60%);
+  transform: translate(-50%, -53%);
 }
 
 .wedding-day-number {
@@ -997,7 +997,7 @@ select:focus {
   left: 50%;
   z-index: 1;
   line-height: 1;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -44%);
 }
 
 @media (max-width: 760px) {
