@@ -12,7 +12,7 @@ const GOOGLE_FORM_FIELDS = {
   ...(RSVP_CONFIG.googleFormFields || {}),
 };
 
-const WEDDING_DATE = new Date("2026-08-08T15:00:00+04:00");
+const WEDDING_DATE = new Date("2026-08-08T15:30:00+04:00");
 const MUSIC_START = 20;
 const MUSIC_END = 49;
 
