@@ -52,7 +52,6 @@ function encodeInvitePayload(payload) {
 
 function buildGuestLink(name, greeting) {
   const url = new URL("index.html", window.location.href);
-  url.hash = "invite";
   url.searchParams.set("i", encodeInvitePayload({ guest: name, greeting }));
   return url.toString();
 }

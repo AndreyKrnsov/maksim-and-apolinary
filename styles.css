@@ -971,21 +971,17 @@ select:focus {
 
 .calendar-grid .wedding-day {
   color: var(--ink);
-}
-
-.calendar-grid .wedding-day::before {
-  position: absolute;
-  inset: 50% auto auto 50%;
-  z-index: -1;
-  width: 2.85em;
-  height: 2.65em;
   background-image: url("assets/screen2-heart.png");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: contain;
+  background-size: 2.85em 2.65em;
   line-height: 1;
-  content: "";
-  transform: translate(-50%, -49%);
+}
+
+.calendar-grid .wedding-day > span[aria-hidden="true"] {
+  position: relative;
+  z-index: 1;
+  line-height: 1;
 }
 
 @media (max-width: 760px) {
