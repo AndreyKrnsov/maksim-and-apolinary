@@ -970,18 +970,34 @@ select:focus {
 }
 
 .calendar-grid .wedding-day {
+  overflow: visible;
   color: var(--ink);
+  line-height: 1;
+  isolation: isolate;
+}
+
+.wedding-day-heart {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 0;
+  width: 2.85em;
+  height: 2.65em;
   background-image: url("assets/screen2-heart.png");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 2.85em 2.65em;
-  line-height: 1;
+  background-size: contain;
+  pointer-events: none;
+  transform: translate(-50%, -60%);
 }
 
-.calendar-grid .wedding-day > span[aria-hidden="true"] {
-  position: relative;
+.wedding-day-number {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   z-index: 1;
   line-height: 1;
+  transform: translate(-50%, -50%);
 }
 
 @media (max-width: 760px) {
